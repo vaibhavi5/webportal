@@ -1,0 +1,143 @@
+/* General styles for the Insight component */
+.insight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.insight h1, .insight h2, .insight h3 {
+  color: #333;
+  text-align: center;
+}
+
+.left-section {
+  flex: 1;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.right-section {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+/* DatePicker styles */
+.react-datepicker-wrapper {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Calendar day grid styles */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 days of the week */
+  gap: 5px;
+  padding: 10px;
+}
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.phaseday {
+  width: calc(100% / 7);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e0e0e0;
+  padding: 5px;
+}
+
+.phaseday.empty {
+  background-color: #f9f9f9;
+  border: none;
+}
+
+.phaseday.Inner-Winter {
+  background-color: #b3e5fc;
+}
+
+.phaseday.Inner-Spring {
+  background-color: #ea8bba;
+}
+
+.phaseday.Inner-Summer {
+  background-color: #ffeb3b;
+}
+
+.phaseday.Inner-Fall {
+  background-color: #5353bb;
+}
+
+.phase-name {
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.day-number {
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+  z-index: 0; /* Ensure it is below phase name */
+}
+
+/* Style for empty days at the start of the calendar */
+  .empty {
+  background: #f0f0f0;
+}
+
+/* Error or message styling */
+.error-message {
+  color: red;
+  text-align: center;
+}
+
+/* Loading state styling */
+.loading {
+  text-align: center;
+}
+
+.selected-day {
+  border: 2px solid green; /* Or any other style to make the selected day stand out */
+}
+
+.input-button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-button-container input {
+  flex: 1;
+}
+
+.nav-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.calendar-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+}

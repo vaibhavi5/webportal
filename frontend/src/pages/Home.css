@@ -1,0 +1,54 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.home_box {
+    background-color: white;
+    height: 60vh;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.home h1 {
+    color: #162938;
+    margin-bottom: 20px;
+}
+
+.home p {
+    color: #162938;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.home button {
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 2px solid white;
+    margin: 5px;
+    color: 162938;
+    cursor: pointer;
+}
+
+.home button:hover {
+    background-color: white;
+}
+
+.home .button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home .button-group button {
+    width: 200px;
+    margin-top: 10px;
+}

@@ -1,0 +1,86 @@
+/* Survey.css */
+
+.survey-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.survey-box {
+  width: 40%;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.progress {
+  height: 100%;
+  background: #4caf50;
+  border-radius: 5px;
+  transition: width 0.4s ease-in-out;
+}
+
+.survey-step h2 {
+  margin-bottom: 1rem;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="tel"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.button-group button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #4caf50;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  background: #45a049;
+}
+
+.message {
+  color: red;
+  margin-top: 1rem;
+  text-align: center;
+}
