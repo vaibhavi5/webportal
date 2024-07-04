@@ -11,7 +11,7 @@ const Chatbot = () => {
   const inputRef = useRef(null);
   const [chatVisible, setChatVisible] = useState(false);
 
-  const API_KEY = "sk-proj-j81FIg85hb8d4IQvwVWxT3BlbkFJFqcCEcWoF3bvqEiruVQV";
+  const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
   useEffect(() => {
     setMessages([{ message: "Hello! How can I help you today?", className: "chatbot-incoming" }]);
