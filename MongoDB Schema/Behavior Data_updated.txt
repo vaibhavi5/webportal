@@ -1,0 +1,120 @@
+Table name: behaviors
+
+db.createCollection("behaviors", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: [
+                "communicate_willingness",
+                "social_frequency",
+                "social_quality",
+                "selfcare_activities",
+                "exercise_freq",
+                "exercise_intensity",
+                "dietary_habits",
+                "productivity",
+                "preferred_tasks_types",
+                "support_needed",
+                "coitus",
+                "sleep_pattern"
+                ],
+            properties: {
+                user_id: {
+                    bsonType: "string",
+                },
+                communication_willingness: {
+                    bsonType: "string",
+                    enum: ["Very Unwilling", "Unwilling", "Neutral", "Willing", "Very Willing"],
+                    description: "must be one of the predefined values and is required"
+                },
+                social_frequency: {
+                    bsonType: "string",
+                    enum: [ "Never", "Rarely", "A few times a year", "Once a month", 
+                            "A few times a month", "Once a week", "Several times a week", "Daily" ]
+                    description: "must be one of the predefined values and is required"
+                },
+                social_quality: {
+                    bsonType: "string",
+                    enum: ["Very Poor", "Poor", "Average", "Good", "Excellent"],
+                    description: "must be one of the predefined values and is required"
+                },
+                selfcare_activities: {
+                    bsonType: "array",
+                    items: {
+                    bsonType: "string",
+                        enum: [
+                            "Exercise (e.g., walking, running, yoga)", "Meditation or mindfulness practices", "Reading", "Listening to music", "Hobbies (e.g., crafting, gardening, painting)", 
+                            "Spending time with friends and family", "Watching movies or TV shows", "Cooking or baking", "Journaling or writing", "Taking baths or other personal grooming activities", 
+                            "Practicing gratitude or positive affirmations", "Outdoor activities (e.g., hiking, camping)", "Others"
+                        ]
+                    },
+                    description: "must be an array of the predefined values and is required"
+                },
+                exercise_freq: {
+                    bsonType: "string",
+                    enum: [ "Daily", "Several times a week", "Once a week", "A few times a month", "Once a month", "Rarely", "Never" ].
+                    description: "must be one of the predefined values and is required"
+                },
+                exercise_intensity: {
+                    bsonType: "string",
+                    enum: [ "Light (e.g., walking, stretching)", "Moderate (e.g., brisk walking, dancing)", 
+                            "Vigorous (e.g., running, high-intensity interval training)", 
+                            "Mixed (a combination of light, moderate, and vigorous activities)", "None" ],
+                    description: "must be one of the predefined values and is required"
+                },
+                dietary_habits: {
+                    bsonType: "string",
+                    enum: [ "Omnivorous (eats both plant and animal products)", "Vegetarian (avoids meat, may consume dairy and/or eggs)",
+                            "Vegan (avoids all animal products)", "Pescatarian (eats fish and seafood, avoids other meats)", 
+                            "Flexitarian (primarily vegetarian but occasionally eats meat)", 
+                            "Paleo (focuses on whole foods, avoids processed foods, grains, and dairy)",
+                            "Keto (high fat, low carbohydrate diet)", "Low-Carb (restricts carbohydrate intake)", 
+                            "Mediterranean (emphasizes fruits, vegetables, whole grains, and healthy fats)", 
+                            "Gluten-Free (avoids gluten-containing foods)", "Dairy-Free (avoids dairy products)", 
+                            "Intermittent Fasting (cycles between periods of eating and fasting)", "Other (please specify)" ],
+                    description: "must be one of the predefined values and is required"
+                },
+                productivity: {
+                    bsonType: "string",
+                    enum: ["Very Low Productivity", "Low Productivity", "Moderate Productivity", "High Productivity", "Very High Productivity"],
+                    description: "must be one of the predefined values and is required"
+                },
+                preferred_tasks_types: {
+                    bsonType: "string",
+                    enum: ["Very Creative", "Somewhat Creative", "Balanced", "Somewhat Analytical", "Very Analytical"],
+                    description: "must be one of the predefined values and is required"
+                },
+                support_needed: {
+                        bsonType: "array",
+                        items: {
+                            bsonType: "string",
+                            enum: [
+                                "Emotional support (e.g., listening, empathy)", "Practical support (e.g., help with chores, childcare)", "Financial support (e.g., monetary assistance, loans)", 
+                                "Advice and guidance (e.g., career, personal decisions)", "Social support (e.g., spending time together, companionship)", "Medical support (e.g., accompanying to doctor’s appointments, health care decisions)", 
+                                "Encouragement and motivation (e.g., for personal goals, hobbies)", "Other (please specify)"
+                            ]
+                        },
+                        description: "must be an array of predefined values and is required"
+                    },
+                coitus: {
+                    bsonType: "string",
+                    enum: [ "Daily", "Several times a week", "Once a week", "A few times a month", "Once a month", 
+                            "A few times a year","Rarely", "Never", "Prefer not to say" ],
+                    description: "must be one of the predefined values and is required"
+                },
+                sleep_pattern: {
+                    bsonType: "string",
+                    enum: [ "I consistently get enough sleep and feel well-rested.", 
+                            "I get enough sleep most nights but sometimes feel tired.", 
+                            "My sleep is irregular, and I often feel tired.", 
+                            "I have difficulty falling or staying asleep most nights.", 
+                            "I rarely get enough sleep and often feel exhausted.", 
+                            "Insomnia (Difficulty Falling Asleep, Difficulty Staying Asleep, Early Morning Awakening, Non-Restorative Sleep)", 
+                            "Sleep Apnea (Loud Snoring, Morning Headaches)", 
+                            "Restless Legs Syndrome (RLS) (Uncomfortable Sensations in the Legs, Urge to Move Legs)", "Others (Night Sweats, Bruxism, Dreamy)" ],
+                    description: "must be one of the predefined values and is required"
+                },
+            }
+        }
+    }
+})

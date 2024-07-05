@@ -1,0 +1,196 @@
+Table of mood data
+Table name: mood_data
+db.createCollection("mood_data", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: [
+                "mood_describe",
+                "mood_intensity"
+                ],
+            properties: {
+                user_id: {
+                    bsonType: "string"
+                },
+                daily_mood: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string",
+                        enum: ["Happy", "Excited", "Content", "Motivated", "Energetic", "Neutral", "Irritable", "Anxious", "Stressed", "Bored", "Lonely", "Frustrated"]
+                        },
+                    description: "must be one of the enum values"
+                },
+                mood_intensity: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 10,
+                    description: "must be an integer in [1, 10]"
+                },
+                mood_notes: {
+                    bsonType: "string"
+                },
+
+                any_symptom: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string",
+                        enum: ["None", "Cramps", "Bloating", "Headaches or Migraines", "Back Pain", "Fatigue", "Mood Swings", "Irritability", "Breast Tenderness", "Nausea", "Diarrhea or Constipation", "Acne", "Heavy Bleeding", "Light Bleeding", "Dizziness", "Sleep Disturbances", "Food Cravings", "Joint or Muscle Pain", "Anxiety or Depression", "Other (please specify)"]
+                        },
+                    description: "must be one of the enum values"
+                },
+                energized_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                quick_to_anger: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                creative_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                physically_fatigued_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                mentally_fatigued_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                comfortable_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                confident_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                feel_like_doing: {
+                    bsonType: "string",
+                    enum: ["Exercise", "Work/Study", "Relax/Rest", "Socialize", "Tackle to-do list"],
+                    description: "must be one of the enum values"
+                },
+                stressed_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                emotionally_or_logically: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                mood_change_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                feel_like_working: {
+                    bsonType: "string",
+                    enum: ["Alone", "With others"],
+                    description: "must be one of the enum values"
+                },
+                ability_to_concentrate_at_work: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                challenging_complete_tasks: {
+                    bsonType: "string",
+                    enum: ["Yes", "No"],
+                    description: "must be one of the enum values"
+                },
+                do_what_type_work: {
+                    bsonType: "string",
+                    enum: ["Errands/tasks/obligations", "Work at computer/desk", "Active/physical work"],
+                    description: "must be one of the enum values"
+                },
+                easy_to_complete_todo: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                physical_activity_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                exercise_type: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string",
+                        enum: ["Yoga", "Running", "Walking", "Strength Training", "Cycling", "Swimming", "Pilates", "Dancing", "Hiking", "Aerobics", "HIIT (High-Intensity Interval Training)", "Team Sports (e.g., soccer, basketball)", "Martial Arts", "Climbing", "Tennis", "Golf", "Rowing", "Boxing", "None"]
+                        },
+                    description: "must be an array of predefined values"
+                },
+                by_yourself_or_with_others: {
+                    bsonType: "string",
+                    enum: ["Myself", "With others"],
+                    description: "must be one of the enum values"
+                },
+                needed_support_type: {
+                    bsonType: "string",
+                    enum: ["Emotional support", "Physical comfort", "Logical advice"],
+                    description: "must be one of the enum values"
+                },
+                prefer_commu_type: {
+                    bsonType: "string",
+                    enum: ["In-person", "Email", "Text/IM", "Call/FaceTime"],
+                    description: "must be one of the enum values"
+                },
+                social_satidfied_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                engage_social_activities: {
+                    bsonType: "string",
+                    enum: ["Yes", "No"],
+                    description: "must be one of the enum values"
+                },
+                type_of_engage_social_activities: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string",
+                        enum: ["Casual meetup", "Formal event", "Family time", "Online socializing"]
+                        },
+                    description: "must be one or more of the enum values"
+                },
+                feel_supported_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                },
+                like_socializing_level: {
+                    bsonType: "int",
+                    minimum: 1,
+                    maximum: 5,
+                    description: "must be an integer representing the level a scale of 1-5 (low to high)"
+                }
+            }
+        }
+    }
+});
