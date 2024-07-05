@@ -1,0 +1,184 @@
+
+Table of Menstrual Cycle Data
+table name: menstrual_cycle_data
+Schema:
+db.createCollection("menstrual_cycle_data", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: [
+                "record_date",
+                "on_period",
+                "which_day_of_period",
+                "temperature"
+                ],
+            properties: {
+                user_id: {
+                    bsonType: "string",
+                },
+                health_issue: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string",
+                        enum: [
+                            "None", "Asthma", "Diabetes", "Hypertension (High Blood Pressure)", "Heart Disease", "Arthritis", "Depression", "Anxiety", "Chronic Pain", "Allergies", 
+                            "Gastrointestinal Disorders (e.g., IBS, Crohn's Disease)", "Migraine or Chronic Headaches", "Sleep Disorders (e.g., Insomnia, Sleep Apnea)", 
+                            "Autoimmune Diseases (e.g., Lupus, Rheumatoid Arthritis)", "Respiratory Conditions (e.g., COPD, Emphysema)", "Cancer", 
+                            "Neurological Disorders (e.g., Epilepsy, Multiple Sclerosis)", "Skin Conditions (e.g., Eczema, Psoriasis)", "Other (please specify)"
+                        ]
+                    },
+                    description: "must be an array of predefined values"
+                },
+                period_symptoms: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string",
+                        enum: [
+                            "None", "Cramps", "Bloating", "Headaches or Migraines", "Back Pain", "Fatigue", "Mood Swings", "Irritability", "Breast Tenderness", "Nausea", 
+                            "Diarrhea or Constipation", "Acne", "Heavy Bleeding", "Light Bleeding", "Dizziness", "Sleep Disturbances", "Food Cravings", "Joint or Muscle Pain", 
+                            "Anxiety or Depression", "Other (please specify)"
+                        ]
+                    },
+                    description: "must be an array of predefined values"
+                },
+                know_discharge: {
+                    bsonType: "string",
+                    enum: ["Yes", "No"],
+                    description: "must be one of the enum values"
+                },
+                describe_discharge: {
+                    bsonType: "string",
+                    enum: ["Clear and Watery, a normal phase in the menstrual cycle.",
+                           "Clear and Stretchy, a normal phase in the menstrual cycle. This Indicates ovulation",
+                           "White and Creamy Discharge.Mild or no odor. Normal discharge before or after a menstrual period.",
+                           "Yellow or greenish, often thick or clumpy. Corresponding Symptoms: Foul odor, itching, or irritation. Need attention.",
+                           "Gray or off-white discharge.Fishy odor, especially after intercourse. Need attention.",
+                           "Brown or reddish discharge, can be light or heavy. Spotting or light bleeding outside of a regular period. Need attention."],
+                    description: "must be one of the enum values"
+                },
+                cycle_impact: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string",
+                        enum: ["Sleep", "Skin", "Energy or activity level", "Diet", "Mental health", "Others", "No"]
+                    },
+                    description: "must be an array of predefined values"
+                },
+                explore_sexlife: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string",
+                        enum: [
+                            "Understand Sex Drive", 
+                            "Pleasure Exploration", 
+                            "Body Confidence", 
+                            "Partner Communication", 
+                            "Turn-Ons Discovery", 
+                            "No Sex Currently", 
+                            "Other"
+                            ]
+                    },
+                    description: "must be an array of predefined values"
+                },
+                lmp_date: {
+                    bsonType: "date",
+                    description: "must be a date in YYYY-MM-DD format",
+                    pattern: "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                ave_cycle_length: {
+                    bsonType: "int",
+                    description: "must be an integer"
+                },
+                cycle_regularity: {
+                    bsonType: "string",
+                    enum: ["Yes", "No"],
+                    description: "must be one of the enum values"
+                },
+                ovulation_dates: {
+                    bsonType: "date",
+                    description: "must be a date in YYYY-MM-DD format",
+                    pattern: "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                record_date: {
+                    bsonType: "date",
+                    description: "must be a date in YYYY-MM-DD format",
+                    pattern: "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                bleeding: {
+                    bsonType: "string",
+                    enum: ["Yes", "No"],
+                    description: "must be one of the enum"
+                },
+                on_period: {
+                    bsonType: "string",
+                    enum: ["Yes", "No"],
+                    description: "must be one of the enum values"
+                },
+                which_day_of_period: {
+                    bsonType: "int",
+                    description: "must be an integer"
+                },
+                temperature: {
+                    bsonType:["double","null"],
+                    description: "must be a double if provided"
+                        },
+                        temp_unit: {
+                            enum: ["Fahrenheit", "Celsius"],
+                            description: "can only be one of the enum values"
+                        }
+                    }
+                },
+                peak_day: {
+                    bsonType: "string",
+                    enum: ["Yes", "No"],
+                    description: "must be one of the enum values"
+                },
+                color: {
+                    bsonType: "string",
+                    enum: [
+                        "Dry or very little discharge", "Sticky or tacky discharge", "Creamy or lotion-like discharge", "Egg white-like (clear and stretchy) discharge", 
+                        "Watery discharge", "Thick or clumpy discharge", "Blood-tinged discharge (spotting)", "Other (please specify)"
+                        ],
+                    description: "must be one of the predefined values and is not required"
+                },
+                flow: {
+                    bsonType: "string",
+                    enum: [
+                        "Very light (spotting)", "Light", "Moderate", "Heavy", "Very heavy (flooding or large clots)", "Variable (changes from cycle to cycle)"
+                        ],
+                    description: "must be one of the predefined values and is not required"
+                },
+                period_length: {
+                    bsonType: "int",
+                    description: "must be an integer"
+                },
+                menstrual_pain: {
+                    bsonType: "string",
+                    enum: [
+                        "No pain", "Mild pain (manageable without medication)", "Moderate pain (requires over-the-counter pain medication)", 
+                        "Severe pain (requires prescription pain medication)", "Very severe pain (disrupts daily activities)"
+                        ],
+                    description: "must be one of the predefined values and is not required"
+                },
+                menstural_physical_symptoms: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "string",
+                        enum: [
+                            "Head", "Headache", "Nephritis", "Insomnia", "Flank Pain", "Diarrhea", "Period Pain", "Whole Body", "Constipation", "Muscle Ache", 
+                            "Fever", "Edema", "Abnormal Leucorrhea", "Get Cold", "Skin", "Dry Skin", "Acne", "Oily Skin"
+                        ]
+                    },
+                    description: "must be an array of predefined values and is not required"
+                },
+                birth_control: {
+                    bsonType: "string",
+                    enum: [
+                        "Implant", "Birth Control Ring", "Emergency Contraception (Plan B, Ella)", "Hormonal IUD", "Non-Hormonal IUD", "Birth Control Shot", 
+                        "Birth Control Pills", "Patch", "Condoms"],
+                    description: "must be one of the predefined values and is not required"
+                }
+            }
+        }
+    }
+});
