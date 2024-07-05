@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, logOut } from '../Firebase'; // 确保Firebase配置正确
-import './Navbar.css'; // 导入CSS文件
+import { auth, logOut } from '../Firebase';
+import './Navbar.css'; 
 
 function Navbar() {
   const [user] = useAuthState(auth);

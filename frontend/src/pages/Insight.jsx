@@ -7,7 +7,7 @@ import { auth, db, logOut, getToken } from "../Firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import "./Insight.css";  // 引入 CSS 文件
+import "./Insight.css";  
 
 function Insight() {
   const { user, loading, token } = useContext(AuthContext);

@@ -59,7 +59,7 @@ const Chatbot = () => {
 
     setMessages(prevMessages => {
       const updatedMessages = [...prevMessages, createChatLi(userMessage, 'chatbot-outgoing')];
-      setTimeout(scrollToBottom, 100); // 确保滚动到新添加的消息
+      setTimeout(scrollToBottom, 100); 
       return updatedMessages;
     });
     setInput('');
@@ -67,7 +67,7 @@ const Chatbot = () => {
     setTimeout(() => {
       setMessages(prevMessages => {
         const updatedMessages = [...prevMessages, createChatLi("Thinking...", 'chatbot-incoming')];
-        scrollToBottom(); // 滚动到“Thinking...”消息
+        scrollToBottom(); 
         return updatedMessages;
       });
       generateResponse(userMessage);

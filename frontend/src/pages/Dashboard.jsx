@@ -27,9 +27,9 @@ const Dashboard = () => {
     OnPeriod: false,
     temperature: ''
   });
-  const [notificationFrequency, setNotificationFrequency] = useState('daily'); // 默认提醒频率
+  const [notificationFrequency, setNotificationFrequency] = useState('daily'); 
   const [message, setMessage] = useState('');
-  const [currentFrequency, setCurrentFrequency] = useState(''); // 当前提醒频率
+  const [currentFrequency, setCurrentFrequency] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -45,14 +45,13 @@ const Dashboard = () => {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log('Fetched check-ins:', response.data.checkins);
-        setCheckins(response.data.checkins); // 假设返回的结构是 { checkins: [...] }
+        setCheckins(response.data.checkins); 
       } catch (error) {
         console.error('Failed to fetch check-ins:', error);
       }
     };
     fetchCheckins();
 
-    // 获取当前提醒频率
     const fetchNotificationFrequency = async () => {
       try {
         const response = await axiosInstance.get('/dashboards/notificationFrequency', {

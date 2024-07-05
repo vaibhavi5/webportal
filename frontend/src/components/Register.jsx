@@ -34,20 +34,20 @@ function Register() {
 
   const handleGoogleRegister = async () => {
     await signInWithGoogle();
-    const token = localStorage.getItem('token'); // 获取存储的token
+    const token = localStorage.getItem('token'); 
   
     try {
       const response = await axios.get('http://localhost:5001/api/users/me', {
         headers: {
-          Authorization: `Bearer ${token}` // 确保正确传递token
+          Authorization: `Bearer ${token}`
         }
       });
       const userData = response.data;
   
       if (userData && userData.surveyCompleted) {
-        navigate("/dashboard");  // 如果survey已完成，导航到dashboard
+        navigate("/dashboard");  
       } else {
-        navigate("/survey");  // 如果survey未完成，导航到survey
+        navigate("/survey"); 
       }
     } catch (error) {
       console.error("Error fetching user data:", error);

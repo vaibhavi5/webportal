@@ -45,7 +45,6 @@ const Survey = () => {
         });
       } catch (error) {
         if (error.response && error.response.status === 403) {
-          // 用户已经完成survey，重定向到dashboard
           navigate('/dashboard');
         } else {
           console.error("Error accessing survey:", error);

@@ -8,7 +8,7 @@ const connectDB = require('./db');
 const userRoutes = require('./routes/userRoutes');
 const surveyRoutes = require('./routes/surveyRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
-const smsRoutes = require('./routes/smsRoutes'); // 确保路径是 routes
+const smsRoutes = require('./routes/smsRoutes'); // make sure importing routes
 const { startCronJobs } = require('./utils/cronJobs');
 const phaseRoutes = require('./routes/phaseRoutes'); // Ensure correct path
 
@@ -23,7 +23,7 @@ connectDB();
 app.use('/api/users', userRoutes);
 app.use('/api/surveys', surveyRoutes);
 app.use('/api/dashboards', dashboardRoutes);
-app.use('/api/sms', smsRoutes); // 确保使用了 /api/sms 路由
+app.use('/api/sms', smsRoutes); // making sure use /api/sms path
 app.use('/api/phases', phaseRoutes); // Ensure phaseRoutes is used correctly
 
 const PORT = process.env.PORT || 5001;

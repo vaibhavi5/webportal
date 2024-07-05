@@ -71,7 +71,7 @@ const signInWithGoogle = async () => {
     const response = await signInWithPopup(auth, googleProvider);
     const user = response.user;
     const token = await user.getIdToken();
-    localStorage.setItem('token', token); // 存储token
+    localStorage.setItem('token', token); 
 
     const q = query(collection(db, "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
@@ -84,7 +84,7 @@ const signInWithGoogle = async () => {
         surveyCompleted: false
       });
 
-      // 将用户数据发送到后端 API
+      // send user date to the backend api
       await axios.post('http://localhost:5001/api/users/register', {
         uid: user.uid,
         name: user.displayName,
@@ -97,7 +97,7 @@ const signInWithGoogle = async () => {
       console.log("User already exists in Firestore:", user);
     }
 
-    return user; // 返回用户数据
+    return user; // return user data
   } catch (error) {
     console.log(error.message);
     alert(error.message);
@@ -114,7 +114,7 @@ const logInWithEmailAndPassword = async (email, password) => {
 
 const registerWithEmailAndPassword = async (name, email, password) => {
   try {
-    // 检查邮箱是否已存在
+    // check if email is exist
     const q = query(collection(db, "users"), where("email", "==", email));
     const docs = await getDocs(q);
     if (docs.docs.length > 0) {
@@ -123,7 +123,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       return;
     }
 
-    // 如果邮箱不存在，继续注册
+    // if email doesn't exist, continue to registration
     const response = await createUserWithEmailAndPassword(auth, email, password);
     const user = response.user;
     await addDoc(collection(db, "users"), {
@@ -133,7 +133,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       email,
     });
 
-    // 将用户数据发送到后端 API
+    // send user data to backend api (local)
     await axios.post('http://localhost:5001/api/users/register', {
       uid: user.uid,
       name,

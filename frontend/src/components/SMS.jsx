@@ -2,13 +2,13 @@ import React, { useState, useContext } from 'react';
 import axiosInstance from '../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import './SMS.css';
-import AuthContext from '../context/AuthContext'; // 假设你有一个 AuthContext 提供令牌
+import AuthContext from '../context/AuthContext';
 
 const SMS = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
-  const { token } = useContext(AuthContext); // 获取 token
+  const { token } = useContext(AuthContext); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const SMS = () => {
         message: message,
       }, {
         headers: {
-          Authorization: `Bearer ${token}`, // 设置 Authorization 头
+          Authorization: `Bearer ${token}`,
         },
       });
       console.log('SMS sent successfully:', response.data);
