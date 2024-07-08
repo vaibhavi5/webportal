@@ -9,8 +9,8 @@ const PersonalInfo = ({ data, handleChange }) => {
     ];
 
     const optionsMarital = [
-        { value: "Single (never married)", label: "Single" },
-        { value: "Married, or In a domestic partnership", label: "Married" },
+        { value: "Single (never married)", label: "Single (never married)" },
+        { value: "Married, or In a domestic partnership", label: "Married, or In a domestic partnership" },
         { value: "Widowed", label: "Widowed" },
         { value: "Divorced", label: "Divorced" },
         { value: "Separated", label: "Separated" },
@@ -88,14 +88,14 @@ const PersonalInfo = ({ data, handleChange }) => {
         <>
             <div className="input-box">
                 <label>
-                    Date of Birth (DOB):
+                    Your Date of Birth:
                     <input type="date" name="DOB" value={data.DOB || ''} onChange={handleChange} />
                     <small>Enter your date of birth in YYYY-MM-DD format.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Gender:
+                    Your Gender:
                     <select name="gender" value={data.gender || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsGender.map(option => (
@@ -107,28 +107,52 @@ const PersonalInfo = ({ data, handleChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Location - City:
+                    Your Location - City:
                     <input type="text" name="city" value={data.location.city || ''} onChange={(e) => handleNestedChange(e, 'location')} />
                     <small>Enter your city.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Location - State:
+                    Your Location - State:
                     <input type="text" name="state" value={data.location.state || ''} onChange={(e) => handleNestedChange(e, 'location')} />
                     <small>Enter your state.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Location - Country:
+                    Your Location - Country:
                     <input type="text" name="country" value={data.location.country || ''} onChange={(e) => handleNestedChange(e, 'location')} />
                     <small>Enter your country (optional).</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Marital Status:
+                    Which of the following categories best describes the industry you primarily work in (regardless of your actual position)?:
+                    <select name="occupation" value={data.occupation || ''} onChange={handleChange}>
+                        <option value="">Select</option>
+                        {optionsOccupation.map(option => (
+                            <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                    <small>Select your occupation.</small>
+                </label>
+            </div>
+            <div className="input-box">
+                <label>
+                    Which of the following best describes your role in industry?:
+                    <select name="occupation_role" value={data.occupation_role || ''} onChange={handleChange}>
+                        <option value="">Select</option>
+                        {optionsOccupationRole.map(option => (
+                            <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                    <small>Select your occupation role.</small>
+                </label>
+            </div>
+            <div className="input-box">
+                <label>
+                    What is your marital Status?
                     <select name="marital" value={data.marital || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsMarital.map(option => (
@@ -140,7 +164,7 @@ const PersonalInfo = ({ data, handleChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Birth Control:
+                    Are you using any methods of birth control?
                     <select name="birth_control" value={data.birth_control || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsBirthControl.map(option => (
@@ -152,7 +176,7 @@ const PersonalInfo = ({ data, handleChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Regularity of Menstrual Cycle:
+                    Are your period regular?:
                     <select name="regularity" value={data.regularity || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsRegularity.map(option => (
@@ -164,28 +188,28 @@ const PersonalInfo = ({ data, handleChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Last Period Date:
+                    When was your last period date？
                     <input type="date" name="last_period_date" value={data.last_period_date || ''} onChange={handleChange} />
                     <small>Enter the date of your last period in YYYY-MM-DD format.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Average Cycle Length (days):
+                    What is your estimated average cycle length?:
                     <input type="number" name="cycle_length_avg_est" value={data.cycle_length_avg_est || ''} onChange={handleChange} min={1} />
                     <small>Enter the average length of your menstrual cycle in days.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Average Period Length (days):
+                    What is your estimated average period length?
                     <input type="number" name="period_length_avg_est" value={data.period_length_avg_est || ''} onChange={handleChange} min={1} />
                     <small>Enter the average length of your period in days.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Menstrual Pain:
+                    How would describe your menstrual pain level？
                     <select name="menstrual_pain" value={data.menstrual_pain || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsMenstrualPain.map(option => (
@@ -197,7 +221,7 @@ const PersonalInfo = ({ data, handleChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Height:
+                    Your Body Height:
                     <div className="height-input">
                         <input type="number" name="height_num" value={data.height?.height_num || ''} onChange={(e) => handleNestedChange(e, 'height')} />
                         <select name="height_unit" value={data.height?.height_unit || ''} onChange={(e) => handleNestedChange(e, 'height')}>
@@ -211,7 +235,7 @@ const PersonalInfo = ({ data, handleChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Weight:
+                    Your Body Weight:
                     <div className="weight-input">
                         <input type="number" name="weight_num" value={data.weight?.weight_num || ''} onChange={(e) => handleNestedChange(e, 'weight')} />
                         <select name="weight_unit" value={data.weight?.weight_unit || ''} onChange={(e) => handleNestedChange(e, 'weight')}>
@@ -223,30 +247,7 @@ const PersonalInfo = ({ data, handleChange }) => {
                     <small>Enter your weight with unit.</small>
                 </label>
             </div>
-            <div className="input-box">
-                <label>
-                    Occupation:
-                    <select name="occupation" value={data.occupation || ''} onChange={handleChange}>
-                        <option value="">Select</option>
-                        {optionsOccupation.map(option => (
-                            <option key={option.value} value={option.value}>{option.label}</option>
-                        ))}
-                    </select>
-                    <small>Select your occupation.</small>
-                </label>
-            </div>
-            <div className="input-box">
-                <label>
-                    Occupation Role:
-                    <select name="occupation_role" value={data.occupation_role || ''} onChange={handleChange}>
-                        <option value="">Select</option>
-                        {optionsOccupationRole.map(option => (
-                            <option key={option.value} value={option.value}>{option.label}</option>
-                        ))}
-                    </select>
-                    <small>Select your occupation role.</small>
-                </label>
-            </div>
+
         </>
     );
 };

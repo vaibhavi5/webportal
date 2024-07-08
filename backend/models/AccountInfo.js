@@ -8,6 +8,7 @@ const accountInfoSchema = new mongoose.Schema({
       },
     app_purpose: { type: String, enum: ["Yes", "No"], required: true },
     why_tracking: { type: String, enum: ["Period Track", "Cycle & Symptom Monitoring", "Sex Life Improvement", "Pregnancy Chances", "Mood & Behavior Tracking", "Other"], required: true },
+    what_can_help:{ type: String },
     wearable_device: { type: String, enum: ["Yes", "No"], required: true },
     phone_num: { type: String },
     notification_type: { type: String, enum: ["SMS", "Email", "App Notification", "No notification"], required: true },

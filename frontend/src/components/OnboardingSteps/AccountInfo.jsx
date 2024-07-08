@@ -37,7 +37,7 @@ const AccountInfo = ({ data, handleChange }) => {
         <div>
             <div className="input-box">
                 <label>
-                    App Purpose:
+                    Using This App for yourself?
                     <select name="app_purpose" value={data.app_purpose || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {appPurposeOptions.map(option => (
@@ -49,7 +49,7 @@ const AccountInfo = ({ data, handleChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Why Tracking:
+                    Why are you tracking your cycle?
                     <select name="why_tracking" value={data.why_tracking || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {whyTrackingOptions.map(option => (
@@ -57,11 +57,18 @@ const AccountInfo = ({ data, handleChange }) => {
                         ))}
                     </select>
                     <p>Specify the main reason for tracking (e.g., Period Track, Cycle & Symptom Monitoring, etc.).</p>
+
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Wearable Device:
+                    What can we help you do?
+                    <input type="text" name="what_can_help" value={data.what_can_help || ''} onChange={handleChange} />
+                </label>
+            </div>
+            <div className="input-box">
+                <label>
+                    Do you use any smart watch or fitness tracker to monitor your health?
                     <select name="wearable_device" value={data.wearable_device || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {wearableDeviceOptions.map(option => (
@@ -80,7 +87,7 @@ const AccountInfo = ({ data, handleChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Notification Type:
+                    Do you want to receive any notifications?
                     <select name="notification_type" value={data.notification_type || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {notificationTypeOptions.map(option => (
@@ -92,7 +99,7 @@ const AccountInfo = ({ data, handleChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Notification Period:
+                    Notification Frequency:
                     <select name="notification_period" value={data.notification_period || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {notificationPeriodOptions.map(option => (

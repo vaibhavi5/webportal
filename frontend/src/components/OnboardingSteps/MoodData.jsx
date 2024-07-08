@@ -102,7 +102,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
         <>
             <div className="input-box">
                 <label>
-                    Daily Mood:
+                    How would you describe your mood today?
                     <Select
                         isMulti
                         name="daily_mood"
@@ -130,7 +130,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Any Symptom:
+                    Do you have any symptom?
                     <Select
                         isMulti
                         name="any_symptom"
@@ -143,7 +143,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Energized Level:
+                    How energized do you feel?
                     <Select
                         name="energized_level"
                         value={{ value: data.energized_level, label: data.energized_level }}
@@ -155,7 +155,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Quick to Anger:
+                    How quick to anger have you been today?
                     <Select
                         name="quick_to_anger"
                         value={{ value: data.quick_to_anger, label: data.quick_to_anger }}
@@ -167,7 +167,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Creative Level:
+                    How creative do you feel today?
                     <Select
                         name="creative_level"
                         value={{ value: data.creative_level, label: data.creative_level }}
@@ -179,7 +179,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Physically Fatigued Level:
+                    How physically fatigued have you felt today?
                     <Select
                         name="physically_fatigued_level"
                         value={{ value: data.physically_fatigued_level, label: data.physically_fatigued_level }}
@@ -191,7 +191,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Mentally Fatigued Level:
+                    How mentally fatigued have you felt today?
                     <Select
                         name="mentally_fatigued_level"
                         value={{ value: data.mentally_fatigued_level, label: data.mentally_fatigued_level }}
@@ -203,7 +203,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Comfortable Level:
+                    How comfortable in your own body do you feel today?
                     <Select
                         name="comfortable_level"
                         value={{ value: data.comfortable_level, label: data.comfortable_level }}
@@ -215,7 +215,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Confident Level:
+                    How confident do you feel today?
                     <Select
                         name="confident_level"
                         value={{ value: data.confident_level, label: data.confident_level }}
@@ -227,7 +227,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Feel Like Doing:
+                    What do you feel like doing today?
                     <select name="feel_like_doing" value={data.feel_like_doing || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsFeelLikeDoing.map(option => (
@@ -239,7 +239,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Stressed Level:
+                    How stressed did you feel today?
                     <Select
                         name="stressed_level"
                         value={{ value: data.stressed_level, label: data.stressed_level }}
@@ -251,7 +251,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Emotionally or Logically:
+                    Have you felt more emotionally or logically driven today?
                     <Select
                         name="emotionally_or_logically"
                         value={{ value: data.emotionally_or_logically, label: data.emotionally_or_logically }}
@@ -263,7 +263,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Mood Change Level:
+                    How quickly did your mood change today?
                     <Select
                         name="mood_change_level"
                         value={{ value: data.mood_change_level, label: data.mood_change_level }}
@@ -275,7 +275,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Feel Like Working:
+                    How do you feel like working today?
                     <select name="feel_like_working" value={data.feel_like_working || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         <option value="Alone">Alone</option>
@@ -286,7 +286,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Ability to Concentrate at Work:
+                    How would you rate your ability to concentrate at work today?
                     <Select
                         name="ability_to_concentrate_at_work"
                         value={{ value: data.ability_to_concentrate_at_work, label: data.ability_to_concentrate_at_work }}
@@ -298,7 +298,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Challenging to Complete Tasks:
+                    Did you find it challenging to complete your work tasks today? (Yes/No)
                     <select name="challenging_complete_tasks" value={data.challenging_complete_tasks || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
@@ -309,7 +309,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Do What Type of Work:
+                    What type of work did you do today? 
                     <Select
                         isMulti
                         name="do_what_type_work"
@@ -322,7 +322,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Easy to Complete To-Do:
+                    How easy was it to complete your to-do list?
                     <Select
                         name="easy_to_complete_todo"
                         value={{ value: data.easy_to_complete_todo, label: data.easy_to_complete_todo }}
@@ -334,7 +334,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Physical Activity Level:
+                    How would you rate your physical activity level today?
                     <Select
                         name="physical_activity_level"
                         value={{ value: data.physical_activity_level, label: data.physical_activity_level }}
@@ -346,7 +346,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Exercise Type:
+                    What type of exercise did you do today? 
                     <Select
                         isMulti
                         name="exercise_type"
@@ -359,7 +359,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    By Yourself or With Others:
+                    Do you feel like spending time by yourself or with others today?
                     <select name="by_yourself_or_with_others" value={data.by_yourself_or_with_others || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         <option value="Myself">Myself</option>
@@ -370,7 +370,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Needed Support Type:
+                    What type of support do you need from loved ones today? 
                     <select name="needed_support_type" value={data.needed_support_type || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         <option value="Emotional support">Emotional support</option>
@@ -382,7 +382,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Prefer Communication Type:
+                    How did you prefer to communicate with others? 
                     <select name="prefer_commu_type" value={data.prefer_commu_type || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsPreferCommuType.map(option => (
@@ -394,7 +394,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Social Satisfied Level:
+                    How satisfied were you with your social interactions today? 
                     <Select
                         name="social_satidfied_level"
                         value={{ value: data.social_satidfied_level, label: data.social_satidfied_level }}
@@ -406,7 +406,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Engage Social Activities:
+                    Did you engage in any social activities today? (Yes/No)
                     <select name="engage_social_activities" value={data.engage_social_activities || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
@@ -417,7 +417,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Type of Engage Social Activities:
+                    If yes, what type of social activities did you engage in? 
                     <Select
                         isMulti
                         name="type_of_engage_social_activities"
@@ -430,7 +430,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Feel Supported Level:
+                    How supported did you feel by your loved ones today?
                     <Select
                         name="feel_supported_level"
                         value={{ value: data.feel_supported_level, label: data.feel_supported_level }}
@@ -442,7 +442,7 @@ const MoodData = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Like Socializing Level:
+                    How much did you feel like socializing today?
                     <Select
                         name="like_socializing_level"
                         value={{ value: data.like_socializing_level, label: data.like_socializing_level }}

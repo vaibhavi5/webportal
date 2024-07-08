@@ -166,7 +166,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
         <>
             <div className="input-box">
                 <label>
-                    Health Issue:
+                    Do you suffer from any health conditions?
                     <Select
                         isMulti
                         name="health_issue"
@@ -179,7 +179,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Period Symptoms:
+                    Do you suffer from any Symptoms during period?
                     <Select
                         isMulti
                         name="period_symptoms"
@@ -192,7 +192,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Do You Know About Discharge:
+                    Do you know your discharge change through out cycle?
                     <select name="know_discharge" value={data.know_discharge || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsKnowDischarge.map(option => (
@@ -204,7 +204,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Describe Discharge:
+                    Which option best describe your discharge?
                     <select name="describe_discharge" value={data.describe_discharge || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsDescribeDischarge.map(option => (
@@ -216,7 +216,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Cycle Impact:
+                    Does your Cycle impact you in these way？
                     <Select
                         isMulti
                         name="cycle_impact"
@@ -229,7 +229,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Explore Sex Life:
+                    Do you want to explore anything new in sex life?
                     <Select
                         isMulti
                         name="explore_sexlife"
@@ -242,21 +242,21 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Last Menstrual Period (LMP) Date:
+                    Date of last menstrual period (LMP):
                     <input type="date" name="lmp_date" value={data.lmp_date || ''} onChange={handleChange} />
                     <small>Enter the date of your last menstrual period in YYYY-MM-DD format.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Average Cycle Length (days):
+                    What is your average cycle length?
                     <input type="number" name="ave_cycle_length" value={data.ave_cycle_length || ''} onChange={handleChange} />
                     <small>Enter the average length of your cycle in days.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Cycle Regularity:
+                    Are your cycle regular?
                     <select name="cycle_regularity" value={data.cycle_regularity || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsCycleRegularity.map(option => (
@@ -268,14 +268,14 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Ovulation Dates:
+                    When is your ovulation date?
                     <input type="date" name="ovulation_dates" value={data.ovulation_dates || ''} onChange={handleChange} />
                     <small>Enter the dates of ovulation in YYYY-MM-DD format.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Record Date:
+                    Which day are your recording?
                     <input type="date" name="record_date" value={data.record_date || ''} onChange={handleChange} required />
                     <small>Enter the record date in YYYY-MM-DD format.</small>
                 </label>
@@ -294,7 +294,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    On Period:
+                    Are you on your period now?
                     <select name="on_period" value={data.on_period || ''} onChange={handleChange} required>
                         <option value="">Select</option>
                         {optionsOnPeriod.map(option => (
@@ -306,14 +306,14 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Which Day of Period:
+                    On which day of your period?
                     <input type="number" name="which_day_of_period" value={data.which_day_of_period || ''} onChange={handleChange} required />
                     <small>Specify which day of your period you are on.</small>
                 </label>
             </div>
             <div className="input-box">
                 <label>
-                    Temperature:
+                    What is your body temperature?
                     <input type="number" name="temperature" value={data.temperature || ''} onChange={handleChange} />
                     <small>Enter your body temperature.</small>
                 </label>
@@ -332,7 +332,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Peak Day:
+                    Are you on your peak day?
                     <select name="peak_day" value={data.peak_day || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsPeakDay.map(option => (
@@ -344,7 +344,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Color of Discharge:
+                    How do your describe your discharge?
                     <select name="color" value={data.color || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsColor.map(option => (
@@ -356,7 +356,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Flow:
+                    How do your describe your menstrual flow?
                     <select name="flow" value={data.flow || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsFlow.map(option => (
@@ -375,7 +375,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Menstrual Pain:
+                    What is your menstrual pain level?
                     <select name="menstrual_pain" value={data.menstrual_pain || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsMenstrualPain.map(option => (
@@ -387,7 +387,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Menstrual Physical Symptoms:
+                    Do you have any physical symptoms during period?
                     <Select
                         isMulti
                         name="menstural_physical_symptoms"
@@ -400,7 +400,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
             </div>
             <div className="input-box">
                 <label>
-                    Birth Control:
+                    What birth control do you use?
                     <select name="birth_control" value={data.birth_control || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsBirthControl.map(option => (

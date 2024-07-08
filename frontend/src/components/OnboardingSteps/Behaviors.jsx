@@ -134,7 +134,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
         <>
             <div className="input-box">
                 <label>
-                    Communication Willingness:
+                    What is your willingness to communicate?
                     <select name="communication_willingness" value={data.communication_willingness || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsCommunicationWillingness.map(option => (
@@ -146,7 +146,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Social Frequency:
+                    Frequency of social interactions
                     <select name="social_frequency" value={data.social_frequency || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsSocialFrequency.map(option => (
@@ -158,7 +158,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Social Quality:
+                    How do you rate the quality of your social interactions?
                     <select name="social_quality" value={data.social_quality || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsSocialQuality.map(option => (
@@ -170,7 +170,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Self-care Activities:
+                    Which of the following self-care activities do you engage in? (Select all that apply)
                     <Select
                         isMulti
                         name="selfcare_activities"
@@ -183,7 +183,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Exercise Frequency:
+                    How often do you engage in ?
                     <select name="exercise_freq" value={data.exercise_freq || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsExerciseFreq.map(option => (
@@ -195,7 +195,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Exercise Intensity:
+                    What is the typical intensity of your exercise?
                     <select name="exercise_intensity" value={data.exercise_intensity || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsExerciseIntensity.map(option => (
@@ -207,7 +207,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Dietary Habits:
+                    How do you describe your dietary habits?
                     <select name="dietary_habits" value={data.dietary_habits || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsDietaryHabits.map(option => (
@@ -219,7 +219,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Productivity:
+                    Productivity levels
                     <select name="productivity" value={data.productivity || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsProductivity.map(option => (
@@ -231,7 +231,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Preferred Tasks Types:
+                    Preferred types of tasks (creative vs. analytical)
                     <select name="preferred_tasks_types" value={data.preferred_tasks_types || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsPreferredTasksTypes.map(option => (
@@ -243,7 +243,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Support Needed:
+                    Needed support from friends and family
                     <Select
                         isMulti
                         name="support_needed"
@@ -256,7 +256,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Coitus:
+                    How often do you engage in sexual activity?
                     <select name="coitus" value={data.coitus || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsCoitus.map(option => (
@@ -268,7 +268,7 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
             </div>
             <div className="input-box">
                 <label>
-                    Sleep Pattern:
+                    How would you describe your typical sleep pattern?
                     <select name="sleep_pattern" value={data.sleep_pattern || ''} onChange={handleChange}>
                         <option value="">Select</option>
                         {optionsSleepPattern.map(option => (
