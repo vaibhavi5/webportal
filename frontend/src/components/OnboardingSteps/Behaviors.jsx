@@ -30,18 +30,18 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
     ];
 
     const optionsSelfcareActivities = [
-        { value: "Exercise", label: "Exercise (e.g., walking, running, yoga)" },
-        { value: "Meditation", label: "Meditation or mindfulness practices" },
+        { value: "Exercise (e.g., walking, running, yoga)", label: "Exercise (e.g., walking, running, yoga)" },
+        { value: "Meditation or mindfulness practices", label: "Meditation or mindfulness practices" },
         { value: "Reading", label: "Reading" },
         { value: "Listening to music", label: "Listening to music" },
-        { value: "Hobbies", label: "Hobbies (e.g., crafting, gardening, painting)" },
+        { value: "Hobbies (e.g., crafting, gardening, painting)", label: "Hobbies (e.g., crafting, gardening, painting)" },
         { value: "Spending time with friends and family", label: "Spending time with friends and family" },
         { value: "Watching movies or TV shows", label: "Watching movies or TV shows" },
         { value: "Cooking or baking", label: "Cooking or baking" },
         { value: "Journaling or writing", label: "Journaling or writing" },
-        { value: "Taking baths", label: "Taking baths or other personal grooming activities" },
-        { value: "Practicing gratitude", label: "Practicing gratitude or positive affirmations" },
-        { value: "Outdoor activities", label: "Outdoor activities (e.g., hiking, camping)" },
+        { value: "Taking baths or other personal grooming activities", label: "Taking baths or other personal grooming activities" },
+        { value: "Practicing gratitude or positive affirmations", label: "Practicing gratitude or positive affirmations" },
+        { value: "Outdoor activities (e.g., hiking, camping)", label: "Outdoor activities (e.g., hiking, camping)" },
         { value: "Others", label: "Others" },
     ];
 
@@ -56,27 +56,27 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
     ];
 
     const optionsExerciseIntensity = [
-        { value: "Light", label: "Light (e.g., walking, stretching)" },
-        { value: "Moderate", label: "Moderate (e.g., brisk walking, dancing)" },
-        { value: "Vigorous", label: "Vigorous (e.g., running, high-intensity interval training)" },
-        { value: "Mixed", label: "Mixed (a combination of light, moderate, and vigorous activities)" },
+        { value: "Light (e.g., walking, stretching)", label: "Light (e.g., walking, stretching)" },
+        { value: "Moderate (e.g., brisk walking, dancing)", label: "Moderate (e.g., brisk walking, dancing)" },
+        { value: "Vigorous (e.g., running, high-intensity interval training)", label: "Vigorous (e.g., running, high-intensity interval training)" },
+        { value: "Mixed (a combination of light, moderate, and vigorous activities)", label: "Mixed (a combination of light, moderate, and vigorous activities)" },
         { value: "None", label: "None" },
     ];
 
     const optionsDietaryHabits = [
-        { value: "Omnivorous", label: "Omnivorous (eats both plant and animal products)" },
-        { value: "Vegetarian", label: "Vegetarian (avoids meat, may consume dairy and/or eggs)" },
-        { value: "Vegan", label: "Vegan (avoids all animal products)" },
-        { value: "Pescatarian", label: "Pescatarian (eats fish and seafood, avoids other meats)" },
-        { value: "Flexitarian", label: "Flexitarian (primarily vegetarian but occasionally eats meat)" },
-        { value: "Paleo", label: "Paleo (focuses on whole foods, avoids processed foods, grains, and dairy)" },
-        { value: "Keto", label: "Keto (high fat, low carbohydrate diet)" },
-        { value: "Low-Carb", label: "Low-Carb (restricts carbohydrate intake)" },
-        { value: "Mediterranean", label: "Mediterranean (emphasizes fruits, vegetables, whole grains, and healthy fats)" },
-        { value: "Gluten-Free", label: "Gluten-Free (avoids gluten-containing foods)" },
-        { value: "Dairy-Free", label: "Dairy-Free (avoids dairy products)" },
-        { value: "Intermittent Fasting", label: "Intermittent Fasting (cycles between periods of eating and fasting)" },
-        { value: "Other", label: "Other (please specify)" },
+        { value: "Omnivorous (eats both plant and animal products)", label: "Omnivorous (eats both plant and animal products)" },
+        { value: "Vegetarian (avoids meat, may consume dairy and/or eggs)", label: "Vegetarian (avoids meat, may consume dairy and/or eggs)" },
+        { value: "Vegan (avoids all animal products)", label: "Vegan (avoids all animal products)" },
+        { value: "Pescatarian (eats fish and seafood, avoids other meats)", label: "Pescatarian (eats fish and seafood, avoids other meats)" },
+        { value: "Flexitarian (primarily vegetarian but occasionally eats meat)", label: "Flexitarian (primarily vegetarian but occasionally eats meat)" },
+        { value: "Paleo (focuses on whole foods, avoids processed foods, grains, and dairy)", label: "Paleo (focuses on whole foods, avoids processed foods, grains, and dairy)" },
+        { value: "Keto (high fat, low carbohydrate diet)", label: "Keto (high fat, low carbohydrate diet)" },
+        { value: "Low-Carb (restricts carbohydrate intake)", label: "Low-Carb (restricts carbohydrate intake)" },
+        { value: "Mediterranean (emphasizes fruits, vegetables, whole grains, and healthy fats)", label: "Mediterranean (emphasizes fruits, vegetables, whole grains, and healthy fats)" },
+        { value: "Gluten-Free (avoids gluten-containing foods)", label: "Gluten-Free (avoids gluten-containing foods)" },
+        { value: "Dairy-Free (avoids dairy products)", label: "Dairy-Free (avoids dairy products)" },
+        { value: "Intermittent Fasting (cycles between periods of eating and fasting)", label: "Intermittent Fasting (cycles between periods of eating and fasting)" },
+        { value: "Other (please specify)", label: "Other (please specify)" },
     ];
 
     const optionsProductivity = [
@@ -96,14 +96,14 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
     ];
 
     const optionsSupportNeeded = [
-        { value: "Emotional support", label: "Emotional support (e.g., listening, empathy)" },
-        { value: "Practical support", label: "Practical support (e.g., help with chores, childcare)" },
-        { value: "Financial support", label: "Financial support (e.g., monetary assistance, loans)" },
-        { value: "Advice and guidance", label: "Advice and guidance (e.g., career, personal decisions)" },
-        { value: "Social support", label: "Social support (e.g., spending time together, companionship)" },
-        { value: "Medical support", label: "Medical support (e.g., accompanying to doctor's appointments, health care decisions)" },
-        { value: "Encouragement and motivation", label: "Encouragement and motivation (e.g., for personal goals, hobbies)" },
-        { value: "Other", label: "Other (please specify)" },
+        { value: "Emotional support (e.g., listening, empathy)", label: "Emotional support (e.g., listening, empathy)" },
+        { value: "Practical support (e.g., help with chores, childcare)", label: "Practical support (e.g., help with chores, childcare)" },
+        { value: "Financial support (e.g., monetary assistance, loans)", label: "Financial support (e.g., monetary assistance, loans)" },
+        { value: "Advice and guidance (e.g., career, personal decisions)", label: "Advice and guidance (e.g., career, personal decisions)" },
+        { value: "Social support (e.g., spending time together, companionship)", label: "Social support (e.g., spending time together, companionship)" },
+        { value: "Medical support (e.g., accompanying to doctor's appointments, health care decisions)", label: "Medical support (e.g., accompanying to doctor's appointments, health care decisions)" },
+        { value: "Encouragement and motivation (e.g., for personal goals, hobbies)", label: "Encouragement and motivation (e.g., for personal goals, hobbies)" },
+        { value: "Other (please specify)", label: "Other (please specify)" },
     ];
 
     const optionsCoitus = [
@@ -119,15 +119,15 @@ const Behaviors = ({ data, handleChange, handleMultiSelectChange }) => {
     ];
 
     const optionsSleepPattern = [
-        { value: "I consistently get enough sleep", label: "I consistently get enough sleep and feel well-rested." },
-        { value: "I get enough sleep most nights", label: "I get enough sleep most nights but sometimes feel tired." },
-        { value: "My sleep is irregular", label: "My sleep is irregular, and I often feel tired." },
-        { value: "I have difficulty falling or staying asleep", label: "I have difficulty falling or staying asleep most nights." },
-        { value: "I rarely get enough sleep", label: "I rarely get enough sleep and often feel exhausted." },
-        { value: "Insomnia", label: "Insomnia (Difficulty Falling Asleep, Difficulty Staying Asleep, Early Morning Awakening, Non-Restorative Sleep)" },
-        { value: "Sleep Apnea", label: "Sleep Apnea (Loud Snoring, Morning Headaches)" },
-        { value: "Restless Legs Syndrome", label: "Restless Legs Syndrome (RLS) (Uncomfortable Sensations in the Legs, Urge to Move Legs)" },
-        { value: "Others", label: "Others (Night Sweats, Bruxism, Dreamy)" },
+        { value: "I consistently get enough sleep and feel well-rested.", label: "I consistently get enough sleep and feel well-rested." },
+        { value: "I get enough sleep most nights but sometimes feel tired.", label: "I get enough sleep most nights but sometimes feel tired." },
+        { value: "My sleep is irregular, and I often feel tired.", label: "My sleep is irregular, and I often feel tired." },
+        { value: "I have difficulty falling or staying asleep most nights.", label: "I have difficulty falling or staying asleep most nights." },
+        { value: "I rarely get enough sleep and often feel exhausted.", label: "I rarely get enough sleep and often feel exhausted." },
+        { value: "Insomnia (Difficulty Falling Asleep, Difficulty Staying Asleep, Early Morning Awakening, Non-Restorative Sleep)", label: "Insomnia (Difficulty Falling Asleep, Difficulty Staying Asleep, Early Morning Awakening, Non-Restorative Sleep)" },
+        { value: "Sleep Apnea (Loud Snoring, Morning Headaches)", label: "Sleep Apnea (Loud Snoring, Morning Headaches)" },
+        { value: "Restless Legs Syndrome (RLS) (Uncomfortable Sensations in the Legs, Urge to Move Legs)", label: "Restless Legs Syndrome (RLS) (Uncomfortable Sensations in the Legs, Urge to Move Legs)" },
+        { value: "Others (Night Sweats, Bruxism, Dreamy)", label: "Others (Night Sweats, Bruxism, Dreamy)" },
     ];
 
     return (
