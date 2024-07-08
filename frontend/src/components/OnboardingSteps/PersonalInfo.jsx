@@ -9,8 +9,8 @@ const PersonalInfo = ({ data, handleChange }) => {
     ];
 
     const optionsMarital = [
-        { value: "Single", label: "Single" },
-        { value: "Married", label: "Married" },
+        { value: "Single (never married)", label: "Single" },
+        { value: "Married, or In a domestic partnership", label: "Married" },
         { value: "Widowed", label: "Widowed" },
         { value: "Divorced", label: "Divorced" },
         { value: "Separated", label: "Separated" },
@@ -31,10 +31,10 @@ const PersonalInfo = ({ data, handleChange }) => {
 
     const optionsMenstrualPain = [
         { value: "No pain", label: "No pain" },
-        { value: "Mild pain", label: "Mild pain (manageable without medication)" },
-        { value: "Moderate pain", label: "Moderate pain (requires over-the-counter pain medication)" },
-        { value: "Severe pain", label: "Severe pain (requires prescription pain medication)" },
-        { value: "Very severe pain", label: "Very severe pain (disrupts daily activities)" }
+        { value: "Mild pain (manageable without medication)", label: "Mild pain (manageable without medication)" },
+        { value: "Moderate pain (requires over-the-counter pain medication)", label: "Moderate pain (requires over-the-counter pain medication)" },
+        { value: "Severe pain (requires prescription pain medication)", label: "Severe pain (requires prescription pain medication)" },
+        { value: "Very severe pain (disrupts daily activities)", label: "Very severe pain (disrupts daily activities)" }
     ];
 
     const optionsOccupation = [

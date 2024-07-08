@@ -17,7 +17,7 @@ const { getUserProfile } = require('../controller/userController');
 // Route to register a new user in MongoDB
 router.post('/register', async (req, res) => {
   // Destructure user data from the request body
-  const { uid, name, email, password, authProvider } = req.body;
+  const { uid, name, email, authProvider } = req.body;
 
   try {
     // Check if the user already exists in the database
@@ -33,7 +33,6 @@ router.post('/register', async (req, res) => {
       uid,
       name,
       email,
-      password,
       authProvider,
     });
 
