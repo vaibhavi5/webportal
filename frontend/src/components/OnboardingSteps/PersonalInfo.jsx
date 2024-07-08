@@ -202,8 +202,8 @@ const PersonalInfo = ({ data, handleChange }) => {
                         <input type="number" name="height_num" value={data.height?.height_num || ''} onChange={(e) => handleNestedChange(e, 'height')} />
                         <select name="height_unit" value={data.height?.height_unit || ''} onChange={(e) => handleNestedChange(e, 'height')}>
                             <option value="">Select</option>
-                            <option value="feet">Feet</option>
-                            <option value="cm">Centimeters</option>
+                            <option value="feet">feet</option>
+                            <option value="cm">cm</option>
                         </select>
                     </div>
                     <small>Enter your height with unit.</small>

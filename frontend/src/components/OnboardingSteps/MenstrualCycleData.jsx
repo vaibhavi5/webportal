@@ -6,29 +6,29 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
         { value: "None", label: "None" },
         { value: "Asthma", label: "Asthma" },
         { value: "Diabetes", label: "Diabetes" },
-        { value: "Hypertension ", label: "Hypertension (High Blood Pressure)" },
+        { value: "Hypertension (High Blood Pressure)", label: "Hypertension (High Blood Pressure)" },
         { value: "Heart Disease", label: "Heart Disease" },
         { value: "Arthritis", label: "Arthritis" },
         { value: "Depression", label: "Depression" },
         { value: "Anxiety", label: "Anxiety" },
         { value: "Chronic Pain", label: "Chronic Pain" },
         { value: "Allergies", label: "Allergies" },
-        { value: "Gastrointestinal Disorders", label: "Gastrointestinal Disorders (e.g., IBS, Crohn's Disease)" },
+        { value: "Gastrointestinal Disorders (e.g., IBS, Crohn's Disease)", label: "Gastrointestinal Disorders (e.g., IBS, Crohn's Disease)" },
         { value: "Migraine or Chronic Headaches", label: "Migraine or Chronic Headaches" },
-        { value: "Sleep Disorders", label: "Sleep Disorders (e.g., Insomnia, Sleep Apnea)" },
-        { value: "Autoimmune Diseases", label: "Autoimmune Diseases (e.g., Lupus, Rheumatoid Arthritis)" },
-        { value: "Respiratory Conditions", label: "Respiratory Conditions (e.g., COPD, Emphysema)" },
+        { value: "Sleep Disorders (e.g., Insomnia, Sleep Apnea)", label: "Sleep Disorders (e.g., Insomnia, Sleep Apnea)" },
+        { value: "Autoimmune Diseases (e.g., Lupus, Rheumatoid Arthritis)", label: "Autoimmune Diseases (e.g., Lupus, Rheumatoid Arthritis)" },
+        { value: "Respiratory Conditions (e.g., COPD, Emphysema)", label: "Respiratory Conditions (e.g., COPD, Emphysema)" },
         { value: "Cancer", label: "Cancer" },
-        { value: "Neurological Disorders", label: "Neurological Disorders (e.g., Epilepsy, Multiple Sclerosis)" },
-        { value: "Skin Conditions", label: "Skin Conditions (e.g., Eczema, Psoriasis)" },
-        { value: "Other", label: "Other (please specify)" },
+        { value: "Neurological Disorders (e.g., Epilepsy, Multiple Sclerosis)", label: "Neurological Disorders (e.g., Epilepsy, Multiple Sclerosis)" },
+        { value: "Skin Conditions (e.g., Eczema, Psoriasis)", label: "Skin Conditions (e.g., Eczema, Psoriasis)" },
+        { value: "Other (please specify)", label: "Other (please specify)" },
     ];
 
     const optionsPeriodSymptoms = [
         { value: "None", label: "None" },
         { value: "Cramps", label: "Cramps" },
         { value: "Bloating", label: "Bloating" },
-        { value: "Headaches", label: "Headaches" },
+        { value: "Headaches or Migraines", label: "Headaches" },
         { value: "Back Pain", label: "Back Pain" },
         { value: "Fatigue", label: "Fatigue" },
         { value: "Mood Swings", label: "Mood Swings" },
@@ -44,7 +44,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
         { value: "Food Cravings", label: "Food Cravings" },
         { value: "Joint or Muscle Pain", label: "Joint or Muscle Pain" },
         { value: "Anxiety or Depression", label: "Anxiety or Depression" },
-        { value: "Other", label: "Other (please specify)" },
+        { value: "Other (please specify)", label: "Other (please specify)" },
     ];
 
     const optionsKnowDischarge = [
@@ -53,18 +53,18 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
     ];
 
     const optionsDescribeDischarge = [
-        { value: "Clear and Watery", label: "Clear and Watery, a normal phase in the menstrual cycle." },
-        { value: "Clear and Stretchy", label: "Clear and Stretchy, a normal phase in the menstrual cycle. This Indicates ovulation" },
-        { value: "White and Creamy", label: "White and Creamy Discharge.Mild or no odor. Normal discharge before or after a menstrual period." },
-        { value: "Yellow or greenish", label: "Yellow or greenish, often thick or clumpy. Corresponding Symptoms: Foul odor, itching, or irritation. Need attention." },
-        { value: "Gray or off-white", label: "Gray or off-white discharge.Fishy odor, especially after intercourse. Need attention." },
-        { value: "Brown or reddish", label: "Brown or reddish discharge, can be light or heavy. Spotting or light bleeding outside of a regular period. Need attention." },
+        { value: "Clear and Watery, a normal phase in the menstrual cycle", label: "Clear and Watery, a normal phase in the menstrual cycle." },
+        { value: "Clear and Stretchy, a normal phase in the menstrual cycle. This Indicates ovulation", label: "Clear and Stretchy, a normal phase in the menstrual cycle. This Indicates ovulation" },
+        { value: "White and Creamy Discharge. Mild or no odor. Normal discharge before or after a menstrual period", label: "White and Creamy Discharge.Mild or no odor. Normal discharge before or after a menstrual period." },
+        { value: "Yellow or greenish, often thick or clumpy. Corresponding Symptoms: Foul odor, itching, or irritation. Need attention", label: "Yellow or greenish, often thick or clumpy. Corresponding Symptoms: Foul odor, itching, or irritation. Need attention." },
+        { value: "Gray or off-white discharge.Fishy odor, especially after intercourse. Need attention", label: "Gray or off-white discharge.Fishy odor, especially after intercourse. Need attention." },
+        { value: "Brown or reddish discharge, can be light or heavy. Spotting or light bleeding outside of a regular period. Need attention", label: "Brown or reddish discharge, can be light or heavy. Spotting or light bleeding outside of a regular period. Need attention." },
     ];
 
     const optionsCycleImpact = [
         { value: "Sleep", label: "Sleep" },
         { value: "Skin", label: "Skin" },
-        { value: "Energy", label: "Energy or activity level" },
+        { value: "Energy or activity level", label: "Energy or activity level" },
         { value: "Diet", label: "Diet" },
         { value: "Mental health", label: "Mental health" },
         { value: "Others", label: "Others" },
@@ -102,31 +102,31 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
     ];
 
     const optionsColor = [
-        { value: "Dry or very little", label: "Dry or very little discharge" },
-        { value: "Sticky or tacky", label: "Sticky or tacky discharge" },
-        { value: "Creamy or lotion-like", label: "Creamy or lotion-like discharge" },
-        { value: "Egg white-like", label: "Egg white-like (clear and stretchy) discharge" },
-        { value: "Watery", label: "Watery discharge" },
-        { value: "Thick or clumpy", label: "Thick or clumpy discharge" },
-        { value: "Blood-tinged", label: "Blood-tinged discharge (spotting)" },
-        { value: "Other", label: "Other (please specify)" },
+        { value: "Dry or very little discharge", label: "Dry or very little discharge" },
+        { value: "Sticky or tacky discharge", label: "Sticky or tacky discharge" },
+        { value: "Creamy or lotion-like discharge", label: "Creamy or lotion-like discharge" },
+        { value: "Egg white-like (clear and stretchy) discharge", label: "Egg white-like (clear and stretchy) discharge" },
+        { value: "Watery discharge", label: "Watery discharge" },
+        { value: "Thick or clumpy discharge", label: "Thick or clumpy discharge" },
+        { value: "Blood-tinged discharge (spotting)", label: "Blood-tinged discharge (spotting)" },
+        { value: "Other (please specify)", label: "Other (please specify)" },
     ];
 
     const optionsFlow = [
-        { value: "Very light", label: "Very light (spotting)" },
+        { value: "Very light (spotting)", label: "Very light (spotting)" },
         { value: "Light", label: "Light" },
         { value: "Moderate", label: "Moderate" },
         { value: "Heavy", label: "Heavy" },
-        { value: "Very heavy", label: "Very heavy (flooding or large clots)" },
-        { value: "Variable", label: "Variable (changes from cycle to cycle)" },
+        { value: "Very heavy (flooding or large clots)", label: "Very heavy (flooding or large clots)" },
+        { value: "Variable (changes from cycle to cycle)", label: "Variable (changes from cycle to cycle)" },
     ];
 
     const optionsMenstrualPain = [
         { value: "No pain", label: "No pain" },
-        { value: "Mild pain", label: "Mild pain (manageable without medication)" },
-        { value: "Moderate pain", label: "Moderate pain (requires over-the-counter pain medication)" },
-        { value: "Severe pain", label: "Severe pain (requires prescription pain medication)" },
-        { value: "Very severe pain", label: "Very severe pain (disrupts daily activities)" },
+        { value: "Mild pain (manageable without medication)", label: "Mild pain (manageable without medication)" },
+        { value: "Moderate pain (requires over-the-counter pain medication)", label: "Moderate pain (requires over-the-counter pain medication)" },
+        { value: "Severe pain (requires prescription pain medication)", label: "Severe pain (requires prescription pain medication)" },
+        { value: "Very severe pain (disrupts daily activities)", label: "Very severe pain (disrupts daily activities)" },
     ];
 
     const optionsMensturalPhysicalSymptoms = [
@@ -153,7 +153,7 @@ const MenstrualCycleData = ({ data, handleChange, handleMultiSelectChange }) => 
     const optionsBirthControl = [
         { value: "Implant", label: "Implant" },
         { value: "Birth Control Ring", label: "Birth Control Ring" },
-        { value: "Emergency Contraception", label: "Emergency Contraception (Plan B, Ella)" },
+        { value: "Emergency Contraception (Plan B, Ella)", label: "Emergency Contraception (Plan B, Ella)" },
         { value: "Hormonal IUD", label: "Hormonal IUD" },
         { value: "Non-Hormonal IUD", label: "Non-Hormonal IUD" },
         { value: "Birth Control Shot", label: "Birth Control Shot" },

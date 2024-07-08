@@ -13,13 +13,45 @@ const personalInfoSchema = new mongoose.Schema({
         state: { type: String, required: true },
         country: { type: String }
     },
-    marital: { type: String, enum: ["Single", "Married", "Widowed", "Divorced", "Separated", "Prefer not to say"], required: true },
+    marital: { type: String, enum: [
+        "Single (never married)", 
+        "Married, or In a domestic partnership", 
+        "Widowed", 
+        "Divorced", 
+        "Separated", 
+        "Prefer not to say"
+    ], required: true },
     birth_control: { type: String, enum: ["Yes", "No", "Prefer not to say"], required: true },
     regularity: { type: String, enum: ["Yes", "No", "Not sure"], required: true },
     last_period_date: { type: Date, required: true },
     cycle_length_avg_est: { type: Number, required: true },
     period_length_avg_est: { type: Number, required: true },
-    menstrual_pain: { type: String, enum: ["No pain", "Mild pain", "Moderate pain", "Severe pain", "Very severe pain"], required: true },
+    menstrual_pain: { type: String, enum: [
+        "No pain",
+        "Mild pain (manageable without medication)",
+        "Moderate pain (requires over-the-counter pain medication)",
+        "Severe pain (requires prescription pain medication)", 
+        "Very severe pain (disrupts daily activities)"
+    ], required: true },
+    
+    height: {
+        height_num: {
+            type: Number
+        },
+        height_unit: {
+            type: String,
+            enum: ["feet", "cm"]
+        }
+    },
+    weight: {
+        weight_num: {
+            type: Number
+        },
+        weight_unit: {
+            type: String,
+            enum: ["lb", "kg"]
+        }
+    },
 }, {
     timestamps: true
 });
