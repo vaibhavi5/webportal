@@ -44,6 +44,7 @@ const AccountInfo = ({ data, handleChange }) => {
                             <option key={option.value} value={option.value}>{option.label}</option>
                         ))}
                     </select>
+                    <p>Specify if you use the app for tracking purposes (Yes/No).</p>
                 </label>
             </div>
             <div className="input-box">
@@ -55,6 +56,8 @@ const AccountInfo = ({ data, handleChange }) => {
                             <option key={option.value} value={option.value}>{option.label}</option>
                         ))}
                     </select>
+                    <p>Specify the main reason for tracking (e.g., Period Track, Cycle & Symptom Monitoring, etc.).</p>
+
                 </label>
             </div>
             <div className="input-box">
@@ -72,12 +75,14 @@ const AccountInfo = ({ data, handleChange }) => {
                             <option key={option.value} value={option.value}>{option.label}</option>
                         ))}
                     </select>
+                    <p>Specify if you use a wearable device (Yes/No).</p>
                 </label>
             </div>
             <div className="input-box">
                 <label>
                     Phone Number:
                     <input type="tel" name="phone_num" value={data.phone_num || ''} onChange={handleChange} />
+                    <p>Enter your phone number (optional).</p>
                 </label>
             </div>
             <div className="input-box">
@@ -89,6 +94,7 @@ const AccountInfo = ({ data, handleChange }) => {
                             <option key={option.value} value={option.value}>{option.label}</option>
                         ))}
                     </select>
+                    <p>Select the type of notifications you prefer (SMS, Email, App Notification, No notification).</p>
                 </label>
             </div>
             <div className="input-box">
@@ -100,6 +106,7 @@ const AccountInfo = ({ data, handleChange }) => {
                             <option key={option.value} value={option.value}>{option.label}</option>
                         ))}
                     </select>
+                    <p>Select the notification frequency (Weekly, Daily, Monthly).</p>
                 </label>
             </div>
         </div>

@@ -65,10 +65,13 @@ const behaviorsSchema = new mongoose.Schema({
         "Pescatarian (eats fish and seafood, avoids other meats)", 
         "Flexitarian (primarily vegetarian but occasionally eats meat)", 
         "Paleo (focuses on whole foods, avoids processed foods, grains, and dairy)",
-        "Keto (high fat, low carbohydrate diet)", "Low-Carb (restricts carbohydrate intake)", 
+        "Keto (high fat, low carbohydrate diet)", 
+        "Low-Carb (restricts carbohydrate intake)", 
         "Mediterranean (emphasizes fruits, vegetables, whole grains, and healthy fats)", 
-        "Gluten-Free (avoids gluten-containing foods)", "Dairy-Free (avoids dairy products)", 
-        "Intermittent Fasting (cycles between periods of eating and fasting)", "Other (please specify)"
+        "Gluten-Free (avoids gluten-containing foods)", 
+        "Dairy-Free (avoids dairy products)", 
+        "Intermittent Fasting (cycles between periods of eating and fasting)", 
+        "Other (please specify)"
     ], required: true },
     productivity: { type: String, enum: [
         "Very Low Productivity", 
@@ -90,8 +93,9 @@ const behaviorsSchema = new mongoose.Schema({
         "Financial support (e.g., monetary assistance, loans)", 
         "Advice and guidance (e.g., career, personal decisions)", 
         "Social support (e.g., spending time together, companionship)", 
-        "Medical support (e.g., accompanying to doctor’s appointments, health care decisions)", 
-        "Encouragement and motivation (e.g., for personal goals, hobbies)", "Other (please specify)"
+        "Medical support (e.g., accompanying to doctor's appointments, health care decisions)", 
+        "Encouragement and motivation (e.g., for personal goals, hobbies)", 
+        "Other (please specify)"
     ], required: true }],
     coitus: { type: String, enum: [
         "Daily", 
