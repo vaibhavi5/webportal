@@ -19,6 +19,8 @@ import {
   addDoc,
 } from "firebase/firestore";
 
+const bcrypt = require('bcryptjs');
+
 const firebaseConfig = {
   apiKey: "AIzaSyAc8kADndC6YpfDGf_FVohMjuPBk1559_U",
   authDomain: "ish-ebead.firebaseapp.com",
@@ -48,7 +50,6 @@ const googleProvider = new GoogleAuthProvider();
 //         email: user.email,
 //       });
 
-//       // 将用户数据发送到后端 API
 //       await axios.post('http://localhost:5001/api/users/register', {
 //         uid: user.uid,
 //         name: user.displayName,
@@ -126,11 +127,17 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     // if email doesn't exist, continue to registration
     const response = await createUserWithEmailAndPassword(auth, email, password);
     const user = response.user;
+
+    // Hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     await addDoc(collection(db, "users"), {
       uid: user.uid,
       name,
-      authProvider: "local",
+      password: hashedPassword,
       email,
+      authProvider: "local",
     });
 
     // send user data to backend api (local)
@@ -138,6 +145,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       uid: user.uid,
       name,
       email,
+      password: hashedPassword,
       authProvider: "local"
     });
 

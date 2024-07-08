@@ -21,10 +21,25 @@ db.createCollection("menstrual_cycle_data", {
                     items: {
                         bsonType: "string",
                         enum: [
-                            "None", "Asthma", "Diabetes", "Hypertension (High Blood Pressure)", "Heart Disease", "Arthritis", "Depression", "Anxiety", "Chronic Pain", "Allergies", 
-                            "Gastrointestinal Disorders (e.g., IBS, Crohn's Disease)", "Migraine or Chronic Headaches", "Sleep Disorders (e.g., Insomnia, Sleep Apnea)", 
-                            "Autoimmune Diseases (e.g., Lupus, Rheumatoid Arthritis)", "Respiratory Conditions (e.g., COPD, Emphysema)", "Cancer", 
-                            "Neurological Disorders (e.g., Epilepsy, Multiple Sclerosis)", "Skin Conditions (e.g., Eczema, Psoriasis)", "Other (please specify)"
+                            "None", 
+                            "Asthma", 
+                            "Diabetes", 
+                            "Hypertension (High Blood Pressure)", 
+                            "Heart Disease", 
+                            "Arthritis", 
+                            "Depression", 
+                            "Anxiety", 
+                            "Chronic Pain", 
+                            "Allergies", 
+                            "Gastrointestinal Disorders (e.g., IBS, Crohn's Disease)", 
+                            "Migraine or Chronic Headaches", 
+                            "Sleep Disorders (e.g., Insomnia, Sleep Apnea)", 
+                            "Autoimmune Diseases (e.g., Lupus, Rheumatoid Arthritis)", 
+                            "Respiratory Conditions (e.g., COPD, Emphysema)", 
+                            "Cancer", 
+                            "Neurological Disorders (e.g., Epilepsy, Multiple Sclerosis)", 
+                            "Skin Conditions (e.g., Eczema, Psoriasis)", 
+                            "Other (please specify)"
                         ]
                     },
                     description: "must be an array of predefined values"
@@ -34,9 +49,26 @@ db.createCollection("menstrual_cycle_data", {
                     items: {
                         bsonType: "string",
                         enum: [
-                            "None", "Cramps", "Bloating", "Headaches or Migraines", "Back Pain", "Fatigue", "Mood Swings", "Irritability", "Breast Tenderness", "Nausea", 
-                            "Diarrhea or Constipation", "Acne", "Heavy Bleeding", "Light Bleeding", "Dizziness", "Sleep Disturbances", "Food Cravings", "Joint or Muscle Pain", 
-                            "Anxiety or Depression", "Other (please specify)"
+                            "None", 
+                            "Cramps", 
+                            "Bloating", 
+                            "Headaches or Migraines", 
+                            "Back Pain", 
+                            "Fatigue", 
+                            "Mood Swings", 
+                            "Irritability", 
+                            "Breast Tenderness", 
+                            "Nausea", 
+                            "Diarrhea or Constipation", 
+                            "Acne", 
+                            "Heavy Bleeding", 
+                            "Light Bleeding", 
+                            "Dizziness", 
+                            "Sleep Disturbances", 
+                            "Food Cravings", 
+                            "Joint or Muscle Pain", 
+                            "Anxiety or Depression", 
+                            "Other (please specify)"
                         ]
                     },
                     description: "must be an array of predefined values"
@@ -50,7 +82,7 @@ db.createCollection("menstrual_cycle_data", {
                     bsonType: "string",
                     enum: ["Clear and Watery, a normal phase in the menstrual cycle.",
                            "Clear and Stretchy, a normal phase in the menstrual cycle. This Indicates ovulation",
-                           "White and Creamy Discharge.Mild or no odor. Normal discharge before or after a menstrual period.",
+                           "White and Creamy Discharge. Mild or no odor. Normal discharge before or after a menstrual period.",
                            "Yellow or greenish, often thick or clumpy. Corresponding Symptoms: Foul odor, itching, or irritation. Need attention.",
                            "Gray or off-white discharge.Fishy odor, especially after intercourse. Need attention.",
                            "Brown or reddish discharge, can be light or heavy. Spotting or light bleeding outside of a regular period. Need attention."],
@@ -136,15 +168,26 @@ db.createCollection("menstrual_cycle_data", {
                 color: {
                     bsonType: "string",
                     enum: [
-                        "Dry or very little discharge", "Sticky or tacky discharge", "Creamy or lotion-like discharge", "Egg white-like (clear and stretchy) discharge", 
-                        "Watery discharge", "Thick or clumpy discharge", "Blood-tinged discharge (spotting)", "Other (please specify)"
+                        "Dry or very little discharge", 
+                        "Sticky or tacky discharge", 
+                        "Creamy or lotion-like discharge", 
+                        "Egg white-like (clear and stretchy) discharge", 
+                        "Watery discharge", 
+                        "Thick or clumpy discharge", 
+                        "Blood-tinged discharge (spotting)", 
+                        "Other (please specify)"
                         ],
                     description: "must be one of the predefined values and is not required"
                 },
                 flow: {
                     bsonType: "string",
                     enum: [
-                        "Very light (spotting)", "Light", "Moderate", "Heavy", "Very heavy (flooding or large clots)", "Variable (changes from cycle to cycle)"
+                        "Very light (spotting)", 
+                        "Light", 
+                        "Moderate", 
+                        "Heavy", 
+                        "Very heavy (flooding or large clots)", 
+                        "Variable (changes from cycle to cycle)"
                         ],
                     description: "must be one of the predefined values and is not required"
                 },
@@ -155,8 +198,11 @@ db.createCollection("menstrual_cycle_data", {
                 menstrual_pain: {
                     bsonType: "string",
                     enum: [
-                        "No pain", "Mild pain (manageable without medication)", "Moderate pain (requires over-the-counter pain medication)", 
-                        "Severe pain (requires prescription pain medication)", "Very severe pain (disrupts daily activities)"
+                        "No pain", 
+                        "Mild pain (manageable without medication)", 
+                        "Moderate pain (requires over-the-counter pain medication)", 
+                        "Severe pain (requires prescription pain medication)", 
+                        "Very severe pain (disrupts daily activities)"
                         ],
                     description: "must be one of the predefined values and is not required"
                 },
@@ -165,8 +211,24 @@ db.createCollection("menstrual_cycle_data", {
                     items: {
                         bsonType: "string",
                         enum: [
-                            "Head", "Headache", "Nephritis", "Insomnia", "Flank Pain", "Diarrhea", "Period Pain", "Whole Body", "Constipation", "Muscle Ache", 
-                            "Fever", "Edema", "Abnormal Leucorrhea", "Get Cold", "Skin", "Dry Skin", "Acne", "Oily Skin"
+                            "Head", 
+                            "Headache", 
+                            "Nephritis", 
+                            "Insomnia", 
+                            "Flank Pain", 
+                            "Diarrhea", 
+                            "Period Pain", 
+                            "Whole Body", 
+                            "Constipation", 
+                            "Muscle Ache", 
+                            "Fever", 
+                            "Edema", 
+                            "Abnormal Leucorrhea", 
+                            "Get Cold", 
+                            "Skin", 
+                            "Dry Skin", 
+                            "Acne", 
+                            "Oily Skin"
                         ]
                     },
                     description: "must be an array of predefined values and is not required"
