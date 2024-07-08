@@ -1,0 +1,109 @@
+import React from 'react';
+
+const AccountInfo = ({ data, handleChange }) => {
+    const appPurposeOptions = [
+        { value: "Yes", label: "Yes" },
+        { value: "No", label: "No" }
+    ];
+
+    const whyTrackingOptions = [
+        { value: "Period Track", label: "Period Track" },
+        { value: "Cycle & Symptom Monitoring", label: "Cycle & Symptom Monitoring" },
+        { value: "Sex Life Improvement", label: "Sex Life Improvement" },
+        { value: "Pregnancy Chances", label: "Pregnancy Chances" },
+        { value: "Mood & Behavior Tracking", label: "Mood & Behavior Tracking" },
+        { value: "Other", label: "Other" }
+    ];
+
+    const wearableDeviceOptions = [
+        { value: "Yes", label: "Yes" },
+        { value: "No", label: "No" }
+    ];
+
+    const notificationTypeOptions = [
+        { value: "SMS", label: "SMS" },
+        { value: "Email", label: "Email" },
+        { value: "App Notification", label: "App Notification" },
+        { value: "No notification", label: "No notification" }
+    ];
+
+    const notificationPeriodOptions = [
+        { value: "Weekly", label: "Weekly" },
+        { value: "Daily", label: "Daily" },
+        { value: "Monthly", label: "Monthly" }
+    ];
+
+    return (
+        <div>
+            <div className="input-box">
+                <label>
+                    Using This App for yourself?
+                    <select name="app_purpose" value={data.app_purpose || ''} onChange={handleChange}>
+                        <option value="">Select</option>
+                        {appPurposeOptions.map(option => (
+                            <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                </label>
+            </div>
+            <div className="input-box">
+                <label>
+                    Why are you tracking your cycle?
+                    <select name="why_tracking" value={data.why_tracking || ''} onChange={handleChange}>
+                        <option value="">Select</option>
+                        {whyTrackingOptions.map(option => (
+                            <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                </label>
+            </div>
+            <div className="input-box">
+                <label>
+                    What can we help you do?
+                    <input type="text" name="what_can_help" value={data.what_can_help || ''} onChange={handleChange} />
+                </label>
+            </div>
+            <div className="input-box">
+                <label>
+                    Do you use any smart watch or fitness tracker to monitor your health?
+                    <select name="wearable_device" value={data.wearable_device || ''} onChange={handleChange}>
+                        <option value="">Select</option>
+                        {wearableDeviceOptions.map(option => (
+                            <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                </label>
+            </div>
+            <div className="input-box">
+                <label>
+                    Phone Number:
+                    <input type="tel" name="phone_num" value={data.phone_num || ''} onChange={handleChange} />
+                </label>
+            </div>
+            <div className="input-box">
+                <label>
+                    Do you want to receive any notifications?
+                    <select name="notification_type" value={data.notification_type || ''} onChange={handleChange}>
+                        <option value="">Select</option>
+                        {notificationTypeOptions.map(option => (
+                            <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                </label>
+            </div>
+            <div className="input-box">
+                <label>
+                    Notification Frequency:
+                    <select name="notification_period" value={data.notification_period || ''} onChange={handleChange}>
+                        <option value="">Select</option>
+                        {notificationPeriodOptions.map(option => (
+                            <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                    </select>
+                </label>
+            </div>
+        </div>
+    );
+};
+
+export default AccountInfo;
