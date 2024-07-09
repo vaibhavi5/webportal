@@ -5,6 +5,7 @@ import "./Register.css";
 import { auth, registerWithEmailAndPassword, signInWithGoogle } from "../Firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import axios from 'axios';
+import axiosInstance from "../api/axiosInstance";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -37,7 +38,7 @@ function Register() {
     const token = localStorage.getItem('token'); 
   
     try {
-      const response = await axios.get('http://localhost:5001/api/users/me', {
+      const response = await axiosInstance.get('/users/me', {
         headers: {
           Authorization: `Bearer ${token}`
         }
