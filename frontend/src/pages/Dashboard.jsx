@@ -191,6 +191,8 @@ const Dashboard = () => {
             placeholder="Enter additional insights or recommendations"
           />
         </div>
+        
+        {/* this portion is causing network error, not sure why */}
         <div className="notification-frequency">
           <label>Reminder Frequency:</label>
           <select value={notificationFrequency} onChange={handleNotificationFrequencyChange}>
@@ -200,10 +202,12 @@ const Dashboard = () => {
           </select>
           <button onClick={handleConfirmFrequency}>Confirm</button>
         </div>
+
+
         <div className="current-frequency">
           <label>Current reminder frequency: {currentFrequency}</label>
         </div>
-        <button onClick={() => navigate('/sms')} className="sms-btn">Turn on SMS</button> {/* 添加按钮 */}
+        <button onClick={() => navigate('/sms')} className="sms-btn">Turn on SMS</button> 
       </div>
 
       <div className="right-section">

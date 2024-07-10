@@ -1,5 +1,5 @@
-// frontend/Firebase.js
-import axios from 'axios';
+//frontend/firebase.js
+import axiosInstance from '../src/api/axiosInstance';
 import { initializeApp } from "firebase/app";
 import {
   GoogleAuthProvider,
@@ -9,6 +9,7 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 import {
   getFirestore,
@@ -34,36 +35,14 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
-// const signInWithGoogle = async () => {
-//   try {
-//     const response = await signInWithPopup(auth, googleProvider);
-//     const user = response.user;
-//     const q = query(collection(db, "users"), where("uid", "==", user.uid));
-//     const docs = await getDocs(q);
-//     if (docs.docs.length === 0) {
-//       await addDoc(collection(db, "users"), {
-//         uid: user.uid,
-//         name: user.displayName,
-//         authProvider: "google",
-//         email: user.email,
-//       });
-
-//       await axios.post('http://localhost:5001/api/users/register', {
-//         uid: user.uid,
-//         name: user.displayName,
-//         email: user.email,
-//         authProvider: "google"
-//       });
-
-//       console.log("User added to Firestore and MongoDB:", user);
-//     } else {
-//       console.log("User already exists in Firestore:", user);
-//     }
-//   } catch (error) {
-//     console.log(error.message);
-//     alert(error.message);
-//   }
-// };
+// Listen for authentication state to change.
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    // User is signed in, refresh token periodically.
+    const token = await user.getIdToken();
+    localStorage.setItem('token', token); // Store token in local storage
+  }
+});
 
 const signInWithGoogle = async () => {
   try {
@@ -83,8 +62,8 @@ const signInWithGoogle = async () => {
         surveyCompleted: false
       });
 
-      // send user date to the backend api
-      await axios.post('http://localhost:5001/api/users/register', {
+      // send user data to the backend api
+      await axiosInstance.post('/users/register', {
         uid: user.uid,
         name: user.displayName,
         email: user.email,
@@ -105,7 +84,10 @@ const signInWithGoogle = async () => {
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    const response = await signInWithEmailAndPassword(auth, email, password);
+    const user = response.user;
+    const token = await user.getIdToken();
+    localStorage.setItem('token', token); // Store token in local storage
   } catch (error) {
     console.log(error.message);
   }
@@ -125,20 +107,23 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     // if email doesn't exist, continue to registration
     const response = await createUserWithEmailAndPassword(auth, email, password);
     const user = response.user;
+    const token = await user.getIdToken();
+    localStorage.setItem('token', token); // Store token in local storage
 
 
     await addDoc(collection(db, "users"), {
       uid: user.uid,
       name,
       email,
-      authProvider: "local",
+      authProvider: "local" 
     });
 
     // send user data to backend api (local)
-    await axios.post('http://localhost:5001/api/users/register', {
+    await axiosInstance.post('/users/register', {
       uid: user.uid,
       name,
       email,
+      password,
       authProvider: "local"
     });
 
