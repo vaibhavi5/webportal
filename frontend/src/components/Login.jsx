@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, signInWithGoogle, logInWithEmailAndPassword } from "../Firebase";
-
-import {useAuthState} from "react-firebase-hooks/auth"
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import googleLogo from '../assets/google-logo.png'; // Ensure you have this image in your assets folder
 import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const[user,loading,error] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
 
-  // TODO *************
-
-  useEffect(()=>{
-    if(loading) return;
-    if(user) navigate("/dashboard");
-  },[user,loading]);
+  useEffect(() => {
+    if (loading) return;
+    if (user) navigate("/dashboard");
+  }, [user, loading]);
 
   return (
     <div className="login">
@@ -38,21 +35,19 @@ function Login() {
         />
         <button
           className="login_btn"
-          // TODO *************
-          onClick={()=>logInWithEmailAndPassword(email, password)}
+          onClick={() => logInWithEmailAndPassword(email, password)}
         >
           Login
         </button>
         <button
           className="login_btn login_googlebtn"
-          // TODO *************
           onClick={signInWithGoogle}
         >
           <div>
             Login with Google
             <img
-              src="https://www.transparentpng.com/thumb/google-logo/google-logo-png-icon-free-download-SUF63j.png"
-              alt=""
+              src={googleLogo}
+              alt="Google Logo"
             />
           </div>
         </button>

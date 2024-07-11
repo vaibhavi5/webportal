@@ -8,10 +8,6 @@ db.createCollection("account_info", {
                 "app_purpose",
                 "why_tracking",
                 "wearable_device",
-                "user_name",
-                "email",
-                "password",
-                "confirm_pw",
                 "notification_type"
                 ],
             properties: {
@@ -38,26 +34,9 @@ db.createCollection("account_info", {
                     enum: ["Yes", "No"],
                     description: "must be one of the predefined values and is required"
                 },
-                user_name: {
-                    bsonType: "string",
-                    description: "must be a string and is required."
-                },
                 phone_num: {
                     bsonType: "string",
                     description: "must be a string and is not required"
-                },
-                email: {
-                    bsonType: "string",
-                    description: "must be a valid email address and is required",
-                    pattern: "^.+@.+\\..+$"
-                },
-                password: {
-                    bsonType: "string",
-                    description: "must be a valid email address and is required"
-                },
-                confirm_pw: {
-                    bsonType: "string",
-                    description: "must be a string matching the password and is required"
                 },
                 notification: {
                     bsonType: "string",
