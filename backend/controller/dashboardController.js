@@ -1,9 +1,10 @@
 const Dashboard = require('../models/Dashboard');
+const Question = require('../models/Question');
 const User = require('../models/User');
 const sendNotification = require('../utils/sendNotification');
 const moment = require('moment');
 
-// Function to submit dashboard check-in data
+/* // Function to submit dashboard check-in data
 const submitDashboard = async (req, res) => {
   const {
     recordDate, bleeding, OnPeriod, temperature, checkinCompleted
@@ -34,10 +35,10 @@ const submitDashboard = async (req, res) => {
     console.error('Error submitting check-in:', error);
     res.status(500).json({ message: 'Check-in error' });
   }
-};
+}; */
 
 // Function to get all dashboard check-in records for a user
-const getDashboard = async (req, res) => {
+const getCheckin = async (req, res) => {
   const uid = req.user.uid;
 
   try {
@@ -124,10 +125,43 @@ const getNotificationFrequency = async (req, res) => {
   }
 };
 
+// Function to get questions for 2 required and each from S/O/W
+const getQuestions = async (req, res) => {
+  try {
+    const requiredQuestions = await Question.find({ required: true }).limit(2);
+    
+    const categories = ['S', 'W', 'O'];
+    const categoryQuestions = await Promise.all(
+      categories.map(category => 
+        Question.aggregate([
+          { $match: { type: category, required: false } },
+          { $sample: { size: 1 } }
+        ]).then(results => results[0])
+      )
+    );
+
+    const questions = [...requiredQuestions, ...categoryQuestions];
+    res.json(questions);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+// user response
+const checkinResponse = async (req, res) => {
+  const { questionKey, question, response } = req.body;
+  try {
+    const newResponse = new Dashboard({ questionKey, question, response });
+    await newResponse.save();
+    res.status(201).json(newResponse);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
 module.exports = {
-  submitDashboard,
-  getDashboard,
+  getCheckin,
   setNotificationFrequency,
   getNotificationFrequency,
-  calculateCheckinCounts
+  calculateCheckinCounts,
+  getQuestions,
+  checkinResponse
 };

@@ -6,10 +6,10 @@ const dashboardSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
+  questionKey: {type: String},
+  question: {type: String},
+  response: {type: String},
   recordDate: { type: String },
-  bleeding: { type: Boolean },
-  OnPeriod: { type: Boolean },
-  temperature: { type: Number },
   checkinCompleted: { type: Boolean }
 }, {
   timestamps: true

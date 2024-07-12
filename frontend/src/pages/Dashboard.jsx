@@ -21,15 +21,11 @@ const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [checkins, setCheckins] = useState([]);
   const [additionalData, setAdditionalData] = useState('');
-  const [dashboardData, setDashboardData] = useState({
-    recordDate: '',
-    bleeding: false,
-    OnPeriod: false,
-    temperature: ''
-  });
-  const [notificationFrequency, setNotificationFrequency] = useState('daily'); 
+  const [questions, setQuestions] = useState([]); // State to store questions
+  const [responses, setResponses] = useState({}); // State to store responses
   const [message, setMessage] = useState('');
   const [currentFrequency, setCurrentFrequency] = useState('');
+  const [notificationFrequency, setNotificationFrequency] = useState('daily'); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,41 +35,53 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (loading || !token) return;
-    const fetchCheckins = async () => {
-      try {
-        const response = await axiosInstance.get('/dashboards/checkins', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        console.log('Fetched check-ins:', response.data.checkins);
-        setCheckins(response.data.checkins); 
-      } catch (error) {
-        console.error('Failed to fetch check-ins:', error);
-      }
-    };
+    
+    fetchQuestions();
     fetchCheckins();
-
-    const fetchNotificationFrequency = async () => {
-      try {
-        const response = await axiosInstance.get('/dashboards/notificationFrequency', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        console.log('Current notification frequency:', response.data.frequency);
-        setCurrentFrequency(response.data.frequency);
-      } catch (error) {
-        console.error('Failed to fetch notification frequency:', error);
-      }
-    };
     fetchNotificationFrequency();
   }, [user, loading, navigate, token]);
 
-  const handleDateChange = (date) => {
+  const fetchQuestions = async () => {
+    try {
+      const response = await axiosInstance.get('dashboards/question', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      console.log('Fetched questions:', response.data); // Debugging log
+      setQuestions(response.data);
+    } catch (error) {
+      console.error('Failed to fetch questions:', error);
+    }
+  };
+
+  const fetchCheckins = async () => {
+    try {
+      const response = await axiosInstance.get('/dashboards/checkins', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      console.log('Fetched check-ins:', response.data.checkins);
+      setCheckins(response.data.checkins); 
+    } catch (error) {
+      console.error('Failed to fetch check-ins:', error);
+    }
+  };
+
+  const fetchNotificationFrequency = async () => {
+    try {
+      const response = await axiosInstance.get('/dashboards/notificationFrequency', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      console.log('Current notification frequency:', response.data.frequency);
+      setCurrentFrequency(response.data.frequency);
+    } catch (error) {
+      console.error('Failed to fetch notification frequency:', error);
+    }
+  };
+
+  const handleDateChange = async (date) => {
     const formattedDate = format(date, 'yyyy-MM-dd');
     console.log('Selected Date:', formattedDate);
     setSelectedDate(date);
-    setDashboardData((prevData) => ({
-      ...prevData,
-      recordDate: formattedDate,
-    }));
+    await fetchQuestions(); // Fetch new random questions
   };
 
   const handleCheckin = async () => {
@@ -86,7 +94,7 @@ const Dashboard = () => {
     try {
       await axiosInstance.post('/dashboards/submit', { 
         recordDate: dateKey, 
-        ...dashboardData 
+        responses 
       }, {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -99,16 +107,15 @@ const Dashboard = () => {
     }
   };
 
-  const handleInputChange = (e) => {
-    setAdditionalData(e.target.value);
+  const handleQuestionChange = (key, question, value) => {
+    setResponses((prevResponses) => ({
+      ...prevResponses,
+      [key]: { question, response: value }
+    }));
   };
 
-  const handleChange = (e) => {
-    const { name, type, checked, value } = e.target;
-    setDashboardData((prevData) => ({
-      ...prevData,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
+  const handleInputChange = (e) => {
+    setAdditionalData(e.target.value);
   };
 
   const handleNotificationFrequencyChange = (e) => {
@@ -184,15 +191,32 @@ const Dashboard = () => {
         <div className="calendar">
           {renderCalendarDays()}
         </div>
-        <div className="additional-input">
-          <textarea
-            value={additionalData}
-            onChange={handleInputChange}
-            placeholder="Enter additional insights or recommendations"
-          />
+        <div className="visualizations">
+          {questions.map((question) => (
+            <div key={question.key} className="visualization">
+              <label>{question.question}</label>
+              {question.enumValues && question.enumValues.length > 0 ? (
+                <select 
+                  multiple 
+                  value={responses[question.key]?.response || []}
+                  onChange={(e) => handleQuestionChange(question.key, question.question, Array.from(e.target.selectedOptions, option => option.value))}
+                >
+                  {question.enumValues.map((option) => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+              ) : (
+                <input
+                  type={question.intRange ? "number" : "text"}
+                  min={question.intRange ? question.intRange[0] : undefined}
+                  max={question.intRange ? question.intRange[1] : undefined}
+                  value={responses[question.key]?.response || ''}
+                  onChange={(e) => handleQuestionChange(question.key, question.question, e.target.value)}
+                />
+              )}
+            </div>
+          ))}
         </div>
-        
-        {/* this portion is causing network error, not sure why */}
         <div className="notification-frequency">
           <label>Reminder Frequency:</label>
           <select value={notificationFrequency} onChange={handleNotificationFrequencyChange}>
@@ -202,45 +226,13 @@ const Dashboard = () => {
           </select>
           <button onClick={handleConfirmFrequency}>Confirm</button>
         </div>
-
-
         <div className="current-frequency">
           <label>Current reminder frequency: {currentFrequency}</label>
         </div>
         <button onClick={() => navigate('/sms')} className="sms-btn">Turn on SMS</button> 
       </div>
-
       <div className="right-section">
-        <div className="visualizations">
-          <div className="visualization">
-            Bleeding or Not:
-            <input type="checkbox" name="bleeding" checked={dashboardData.bleeding} onChange={handleChange} />
-          </div>
-          <div className="visualization">
-            On Period or Not:
-            <input type="checkbox" name="OnPeriod" checked={dashboardData.OnPeriod} onChange={handleChange} />
-          </div>
-          <div className="visualization">
-            Temperature
-            <input type="number" name="temperature" value={dashboardData.temperature} onChange={handleChange} />
-          </div>
-        </div>
-        <div className="details">
-          <div className="details-header">Select visualization above for more information</div>
-          <div className="details-graphs">
-            <div className="doughnut-graph">
-              <Doughnut data={cycleData} />
-            </div>
-            <div className="details-panel">
-              <h4>Chosen Visualization: Additional Relevant Insights/Recommendations</h4>
-              <textarea
-                value={additionalData}
-                onChange={handleInputChange}
-                placeholder="Enter additional insights or recommendations"
-              />
-            </div>
-          </div>
-        </div>
+        This is right Side
       </div>
     </div>
   );
