@@ -3,6 +3,7 @@ const Question = require('../models/Question');
 const User = require('../models/User');
 const sendNotification = require('../utils/sendNotification');
 const moment = require('moment');
+const { check, validationResult } = require('express-validator');
 
 /* // Function to submit dashboard check-in data
 const submitDashboard = async (req, res) => {
@@ -146,17 +147,42 @@ const getQuestions = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
 // user response
 const checkinResponse = async (req, res) => {
-  const { questionKey, question, response } = req.body;
+  const uid = req.user.uid;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const {
+    recordDate,
+    responses,
+    checkinCompleted
+  } = req.body;
+  console.log('Received request:', req.body);
+
   try {
-    const newResponse = new Dashboard({ questionKey, question, response });
-    await newResponse.save();
-    res.status(201).json(newResponse);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    // Create a new Dashboard entry with the responses
+    const newDashboard = new Dashboard({
+      uid,
+      recordDate,
+      checkinCompleted
+    });
+
+    // Map responses to the Dashboard schema fields
+    for (const [key, value] of Object.entries(responses)) {
+      newDashboard[key] = value;
+    }
+
+    await newDashboard.save();
+    res.status(201).json({ message: 'Check-in data submitted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };
+
 module.exports = {
   getCheckin,
   setNotificationFrequency,

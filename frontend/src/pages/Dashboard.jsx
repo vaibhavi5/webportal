@@ -20,12 +20,11 @@ const Dashboard = () => {
   const { user, loading, token } = useContext(AuthContext);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [checkins, setCheckins] = useState([]);
-  const [additionalData, setAdditionalData] = useState('');
-  const [questions, setQuestions] = useState([]); // State to store questions
-  const [responses, setResponses] = useState({}); // State to store responses
+  const [questions, setQuestions] = useState([]);
+  const [responses, setResponses] = useState({});
   const [message, setMessage] = useState('');
   const [currentFrequency, setCurrentFrequency] = useState('');
-  const [notificationFrequency, setNotificationFrequency] = useState('daily'); 
+  const [notificationFrequency, setNotificationFrequency] = useState('daily');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,7 +42,7 @@ const Dashboard = () => {
 
   const fetchQuestions = async () => {
     try {
-      const response = await axiosInstance.get('dashboards/question', {
+      const response = await axiosInstance.get('/dashboards/question', {
         headers: { Authorization: `Bearer ${token}` }
       });
       console.log('Fetched questions:', response.data); // Debugging log
@@ -90,32 +89,40 @@ const Dashboard = () => {
       alert('This date has already been checked in. You cannot submit again.');
       return;
     }
-    setCheckins([...checkins, dateKey]);
+
+    const checkinData = {
+      recordDate: dateKey,
+      responses: Object.fromEntries(Object.entries(responses).map(([key, value]) => [key, value.response])),
+      checkinCompleted: true,
+    };
+
     try {
-      await axiosInstance.post('/dashboards/submit', { 
-        recordDate: dateKey, 
-        responses 
-      }, {
+      const response = await axiosInstance.post('dashboards/checkinResponse', checkinData, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setMessage('DashboardData submitted successfully');
+      setCheckins([...checkins, dateKey]);
+      setMessage('Dashboard data submitted successfully');
       setTimeout(() => {
-        navigate('/dashboard');
+        setMessage('');
       }, 2000);
     } catch (error) {
-      setMessage('DashboardData submission failed: ' + (error.response?.data?.message || error.message));
+      console.error('Error submitting check-in:', error.response?.data || error.message);
+      setMessage('Dashboard data submission failed: ' + (error.response?.data?.message || error.message));
     }
   };
 
   const handleQuestionChange = (key, question, value) => {
     setResponses((prevResponses) => ({
       ...prevResponses,
-      [key]: { question, response: value }
+      [key]: { question, response: Array.isArray(value) ? value : [value] }
     }));
   };
 
-  const handleInputChange = (e) => {
-    setAdditionalData(e.target.value);
+  const handleSingleSelectionChange = (key, question, value) => {
+    setResponses((prevResponses) => ({
+      ...prevResponses,
+      [key]: { question, response: value }
+    }));
   };
 
   const handleNotificationFrequencyChange = (e) => {
@@ -192,26 +199,38 @@ const Dashboard = () => {
           {renderCalendarDays()}
         </div>
         <div className="visualizations">
-          {questions.map((question) => (
+        {questions.map((question) => (
             <div key={question.key} className="visualization">
               <label>{question.question}</label>
               {question.enumValues && question.enumValues.length > 0 ? (
-                <select 
-                  multiple 
-                  value={responses[question.key]?.response || []}
-                  onChange={(e) => handleQuestionChange(question.key, question.question, Array.from(e.target.selectedOptions, option => option.value))}
-                >
-                  {question.enumValues.map((option) => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
+                question.enumValues.length > 1 ? (
+                  <select
+                    multiple
+                    value={responses[question.key]?.response || []}
+                    onChange={(e) => handleQuestionChange(question.key, question.question, Array.from(e.target.selectedOptions, option => option.value))}
+                  >
+                    {question.enumValues.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <select
+                    value={responses[question.key]?.response || ''}
+                    onChange={(e) => handleSingleSelectionChange(question.key, question.question, e.target.value)}
+                  >
+                    <option value="" disabled>Select an option</option>
+                    {question.enumValues.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                )
               ) : (
                 <input
                   type={question.intRange ? "number" : "text"}
                   min={question.intRange ? question.intRange[0] : undefined}
                   max={question.intRange ? question.intRange[1] : undefined}
                   value={responses[question.key]?.response || ''}
-                  onChange={(e) => handleQuestionChange(question.key, question.question, e.target.value)}
+                  onChange={(e) => handleSingleSelectionChange(question.key, question.question, question.intRange ? parseInt(e.target.value, 10) : e.target.value)}
                 />
               )}
             </div>
@@ -234,6 +253,7 @@ const Dashboard = () => {
       <div className="right-section">
         This is right Side
       </div>
+      {message && <div className="message">{message}</div>}
     </div>
   );
 };
