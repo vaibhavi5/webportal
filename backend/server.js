@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const admin = require('./firebase');
 const cors = require('cors');
 const dotenv = require('dotenv');
